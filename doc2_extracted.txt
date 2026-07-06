@@ -1,0 +1,215 @@
+================================================================================
+DOCUMENT 2: IMS 3.0操作手册(荆门).docx
+================================================================================
+
+[P0][Heading 1] IMS 3.0操作手册(荆门)
+[P1][Heading 1] 质检
+[P2][Heading 2] 面料质检（1）
+[P3][Heading 3] 【业务流程】面料
+[P6][dingdocnormal] PS：面料质检创建前提：面料已收货、收货通知单已完成
+[P7][dingdocnormal] 分配组别可选到前提：
+[P8][dingdocnormal] 入口：组织架构-部门管理-编辑
+[P9][dingdocnormal] 要求：部门类型=组别；工段=裁剪前准备工段
+[P10][dingdocnormal] 疵点配置：疵点类型（面料质检）
+[P12][Heading 3] 【PC】质检配置（1）
+[P15][dingdocnormal] 点击【质检配置】进入面辅料客户级别质检配置
+[P16][dingdocnormal] 点击【新增面料质检配置】进入面料质检配置弹窗
+[P17][dingdocnormal] 基于【客户】录入【质检比例】【质检疵点】等数据
+[P18][dingdocnormal] 面料支持配置两种扣分类型【100码】【百平方码】，配置对应【扣分】用于PAD质检自动计算【可接受分数(扣分)】【次损率】判断是否通过质检；点击【确认】完成配置
+[P20][dingdocnormal] 待补英文
+[P21][Heading 3] 【PC】面料质检（1）
+[P24][dingdocnormal] 面料收货通知单收货成功生成【面料检验单】；点击【编辑】进入面料检验编辑页
+[P25][dingdocnormal] 维护【客户】引用对应【面料质检配置】，支持修改【检验比例%】；支持批量维护客户、检验比例
+[P26][dingdocnormal] 选择【分配组别】支持多选
+[P27][dingdocnormal] 点击【生效】检验单生效，生成PAD面料入库检验任务
+[P28][dingdocnormal] PAD检验完成，PC支持【导出瑕疵报告】（卷维度检验数据）；PC审批完成，PC支持【导出检验报告】（物料+色维度检验数据）客户定制格式需开发
+[P30][dingdocnormal] 待补英文
+[P31][Heading 3] 【PAD】面料入库检验（1）
+[P34][dingdocnormal] 选择【质检】点击【面料入库检验】进入面料入库检验列表
+[P35][dingdocnormal] 点击检验任务状态，填写筛选条件，点击【查询】过滤面料入库检验列表数据；点击【卡片】进入面料入库检验详情进行抽检布料选择
+[P36][dingdocnormal] 选择面料色号对应【卡片】；点击【布卷】进入面料检验
+[P37][dingdocnormal] 填入【实际码数】（码）【实际封度】（英寸）；点击【+】【-】进行疵点扣分；自动统计总扣分、疵点数
+[P38][dingdocnormal] 【总扣分】超过【可接受分数】表示当前卷检验结果=不合格，勾选【不扣分】表示人工介入，当前卷检验结果=合格
+[P39][dingdocnormal] 可接受分数（计算固定）
+[P40][dingdocnormal] 100码：【实际码数】*【扣分配置】/100
+[P41][dingdocnormal] 百平方码：【实际码数】*【实际封度】*【扣分配置】/100/36
+[P42][dingdocnormal] 次损率（%）（计算固定）
+[P43][dingdocnormal] 100码：【总扣分】*0.25*100/【实际码数】
+[P44][dingdocnormal] 百平方码：【总扣分】*0.25*100*36/【实际码数】/【实际封度】
+[P45][dingdocnormal] 点击【】可查看更多信息
+[P46][dingdocnormal] 点击【提交】当前布卷完成检验
+[P47][dingdocnormal] 点击【检验完成】当前面料检验任务完成检验任务
+[P49][dingdocnormal] 待补英文
+[P50][Heading 3] 【PC】面料质检审批（1）
+[P53][dingdocnormal] PAD端检验完成后，面料质检详情页支持查看【质检信息】汇总
+[P54][dingdocnormal] 点击【继续检验】重新生成面料入库检验任务；点击【已检明细】【查看明细】查看PAD端执行卷维度检验结果
+[P55][dingdocnormal] 点击【质检审批】支持基于物料+色号唯一，选择【OK】【NG】【让步使用】定义质检审批结果
+[P56][dingdocnormal] 物料+色号对应的检验明细页，点击【质检审批】支持基于对应物料+色号，选择【OK】【NG】【让步使用】定义质检审批结果
+[P58][dingdocnormal] 待补英文
+[P59][Heading 3] 【PC】LOT色（1）
+[P62][dingdocnormal] PC完成审批（状态=【已检验】），布卷审批状态=OK、让步使用，支持在【LOT色】页面定义布卷维度LOT色
+[P64][Heading 2] 辅料质检（1）
+[P65][Heading 3] 【业务流程】辅料
+[P67][dingdocnormal] PS：辅料质检创建前提：辅料已收货、收货通知单已完成
+[P68][dingdocnormal] 分配组别可选到前提：
+[P69][dingdocnormal] 入口：组织架构-部门管理-编辑
+[P70][dingdocnormal] 要求：部门类型=组别；工段=裁剪前准备工段
+[P71][dingdocnormal] 疵点配置：疵点类型（辅料质检）
+[P73][Heading 3] 【PC】辅料质检配置（1）
+[P75][dingdocnormal] 点击【质检配置】进入面辅料客户级别质检配置
+[P76][dingdocnormal] 点击【新增辅料质检配置】进入辅料质检配置弹窗
+[P77][dingdocnormal] 基于【客户】录入【质检比例】【质检疵点】等数据
+[P78][Heading 3] 【PC】辅料质检（1）
+[P80][dingdocnormal] 面料收货通知单收货成功生成【辅料检验单】；点击【编辑】进入面料检验编辑页
+[P81][dingdocnormal] 修改【检验比例%】
+[P82][dingdocnormal] 选择【分配组别】支持多选
+[P83][dingdocnormal] 点击【生效】检验单生效，生成PAD辅料入库检验任务
+[P84][Heading 3] 【PAD】辅料入库检验（1）
+[P87][dingdocnormal] 选择【质检】点击【辅料入库检验】进入辅料入库检验列表
+[P88][dingdocnormal] 点击检验任务状态，填写筛选条件，点击【查询】过滤辅料入库检验列表数据；点击【卡片】进入辅料入库检验详情
+[P89][dingdocnormal] 选择辅料对应【卡片】；点击【箱号】进入辅料检验；点击【质检完成】当前检验任务完成
+[P90][dingdocnormal] 填入【检验数量】（实际检验数量）点击疵点生成疵点数量，自动计算合格数；点击【质检完成】当前箱号完成检验抽查
+[P91][Heading 3] 2【PC】辅料质检审批（1）
+[P93][dingdocnormal] PAD端检验完成后，辅料质检详情页；点击【已检明细】【查看明细】支持查看PAD端执行箱维度检验结果
+[P94][dingdocnormal] 点击【继续检验】重新生成面料入库检验任务
+[P95][dingdocnormal] 点击【质检审批】支持基于物料+色号+尺码唯一，选择【OK】【NG】【让步使用】定义质检审批结果
+[P96][Heading 2] 缝制质检（1）
+[P97][Heading 3] 【业务流程】缝制
+[P99][dingdocnormal] PAD缝制质检【验货】需要线配置/编辑字典
+[P101][Heading 3] 【PAD】缝制检验（1）
+[P103][dingdocnormal] 进入质检模块 ，选择「缝制质检任务」
+[P104][dingdocnormal] 点击【新建任务】
+[P105][dingdocnormal] 选择检验类型：首件 / 首板、成品尺寸、验货
+[P106][dingdocnormal] 以「缝制任务单号」为核心查询主键，输入缝制任务单或生产订单等条件，系统自动带出款号、生产订单等基础信息。
+[P107][dingdocnormal] 点击【确认】，任务状态更新为「待检验」，进入任务列表。
+[P108][dingdocnormal] 返回「缝制检验任务」列表页，按状态（待检验 / 检验中 / 已完成）、款号、生产订单号筛选目标任务。点击目标任务，进入「维护检验结果」详情页。注意事项：「已完成/已作废」状态的任务仅可查看，不可再编辑检验数据。
+[P109][dingdocnormal] 查看报表与导出检验报告
+[P110][dingdocnormal] 操作路径：登录 PC 端 → 进入「质检」→「缝制检验任务」列表页
+[P111][dingdocnormal] 操作说明：点击【导出报表】，可选择导出以下三类报告，查看完整检验数据。
+[P112][dingdocnormal] 首件板板检验报告
+[P113][dingdocnormal] 成品尺寸检验报告
+[P114][dingdocnormal] 验货检验报告
+[P115][dingdocnormal] 系统生成 Excel 格式文件，支持下载存档。
+[P116][Heading 2] 成品质检（1）
+[P117][Heading 3] 【业务流程】成品
+[P120][Heading 3] 【PC】质检配置（1）
+[P122][dingdocnormal] 点击【质检配置】进入面成品客户级别质检配置
+[P123][dingdocnormal] 点击【新增成品质检配置】进入面料质检配置弹窗
+[P124][dingdocnormal] 基于【客户】选择【质检模板】录入【质检疵点】【客查规则】等数据，点击【确认】完成配置
+[P125][Heading 3] 【PC】成品质检（1）
+[P127][dingdocnormal] 登录系统，菜单进入【质检】点击【成品质检】进入页面
+[P128][dingdocnormal] 点击【新建任务】，发起成品质检流程
+[P129][dingdocnormal] 在弹窗中选择对应生产订单与款号
+[P130][dingdocnormal] 点击【确定】，进入质检详情页
+[P131][dingdocnormal] 填写总件数、应抽箱数等基础信息
+[P132][dingdocnormal] 点击【保存】，暂存当前质检数据
+[P133][dingdocnormal] 确认信息无误后，点击【提交】任务生效，待质检状态
+[P134][Heading 3] 【PAD】成品检验（1）
+[P136][dingdocnormal] Pad登录系统 → 点击菜单【质检】选择【成品质检任务】
+[P137][dingdocnormal] 在列表页展示任务的检验单号、生产订单号、款号、应检件数 / 箱数等核心信息，可通过状态、款号等条件筛选，选择状态为「待质检」的任务 ，点击进入详情页
+[P138][dingdocnormal] 录入外观质量检验数据
+[P139][dingdocnormal] 录入箱重量数据
+[P140][dingdocnormal] 点击【新增】输入箱码与对应重量
+[P141][dingdocnormal] 确保所有已检验的项目 填入后 点击【保存】
+[P142][dingdocnormal] 确认所有检验数据录入无误 → 点击【检验完成】→ 系统提示确认后完成任务
+[P143][Heading 3] 【PC】成品导出检验报告（1）
+[P145][dingdocnormal] 返回成品质检任务列表页，找到状态为【已完成】的目标任务 ， 点击操作列【导出检验报告】
+[P147][Heading 1] 生产
+[P148][Heading 2] 裁剪任务（0）
+[P149][Heading 2] 委外任务
+[P150][Heading 2] 线外任务（0）
+[P151][Heading 3] 【业务流程】
+[P152][Heading 3] 【PC】创建线外任务
+[P153][Heading 3] 【PAD】分配线外任务
+[P154][Heading 3] 【PAD】线外工作站
+[P155][Heading 3] 【PAD】裁片呼叫、出库
+[P156][Heading 3] 【PAD】辅料呼叫、出库
+[P157][Heading 3] 【PAD】裁片箱查询
+[P158][Heading 3] 【系统】CTU自动走位逻辑
+[P159][Heading 3] 【PAD】员工线外任务报工
+[P160][Heading 3] 【PDA】线外代报工
+[P161][Heading 3] 【PDA】调整报工
+[P162][Heading 3] 【PAD】看报工数据
+[P163][Heading 2] 齐套（0）
+[P164][Heading 3] 【业务流程】
+[P165][Heading 3] 【PC】齐套配置
+[P166][Heading 3] 【系统】齐套逻辑
+[P167][Heading 3] 【PAD】配包工作站
+[P168][Heading 3] 【PAD】齐套呼叫、出库
+[P169][Heading 1] 仓库（0）
+[P170][Heading 2] 面料仓（0）
+[P171][Heading 2] 辅料仓（0）
+[P172][Heading 2] 裁片仓（0）
+[P173][Heading 2] 成品仓（0）
+[P174][Heading 1] 其他记录（0）
+[P175][Heading 1] 其他（不看）
+[P176][Heading 2] 洗水订单（0）
+
+
+--- HEADING STRUCTURE ---
+  Heading 1: IMS 3.0操作手册(荆门)
+  Heading 1: 质检
+  Heading 2: 面料质检（1）
+  Heading 3: 【业务流程】面料
+  Heading 3: 【PC】质检配置（1）
+  Heading 3: 【PC】面料质检（1）
+  Heading 3: 【PAD】面料入库检验（1）
+  Heading 3: 【PC】面料质检审批（1）
+  Heading 3: 【PC】LOT色（1）
+  Heading 2: 辅料质检（1）
+  Heading 3: 【业务流程】辅料
+  Heading 3: 【PC】辅料质检配置（1）
+  Heading 3: 【PC】辅料质检（1）
+  Heading 3: 【PAD】辅料入库检验（1）
+  Heading 3: 2【PC】辅料质检审批（1）
+  Heading 2: 缝制质检（1）
+  Heading 3: 【业务流程】缝制
+  Heading 3: 【PAD】缝制检验（1）
+  Heading 2: 成品质检（1）
+  Heading 3: 【业务流程】成品
+  Heading 3: 【PC】质检配置（1）
+  Heading 3: 【PC】成品质检（1）
+  Heading 3: 【PAD】成品检验（1）
+  Heading 3: 【PC】成品导出检验报告（1）
+  Heading 1: 生产
+  Heading 2: 裁剪任务（0）
+  Heading 2: 委外任务
+  Heading 2: 线外任务（0）
+  Heading 3: 【业务流程】
+  Heading 3: 【PC】创建线外任务
+  Heading 3: 【PAD】分配线外任务
+  Heading 3: 【PAD】线外工作站
+  Heading 3: 【PAD】裁片呼叫、出库
+  Heading 3: 【PAD】辅料呼叫、出库
+  Heading 3: 【PAD】裁片箱查询
+  Heading 3: 【系统】CTU自动走位逻辑
+  Heading 3: 【PAD】员工线外任务报工
+  Heading 3: 【PDA】线外代报工
+  Heading 3: 【PDA】调整报工
+  Heading 3: 【PAD】看报工数据
+  Heading 2: 齐套（0）
+  Heading 3: 【业务流程】
+  Heading 3: 【PC】齐套配置
+  Heading 3: 【系统】齐套逻辑
+  Heading 3: 【PAD】配包工作站
+  Heading 3: 【PAD】齐套呼叫、出库
+  Heading 1: 仓库（0）
+  Heading 2: 面料仓（0）
+  Heading 2: 辅料仓（0）
+  Heading 2: 裁片仓（0）
+  Heading 2: 成品仓（0）
+  Heading 1: 其他记录（0）
+  Heading 1: 其他（不看）
+  Heading 2: 洗水订单（0）
+
+
+--- TABLE 0 ---
+  Row0: 内容 | 说明
+  Row1: 空箱回库策略 | 线外播种墙（属于裁片仓的62个）空箱回库裁片仓、辅料仓按比例分配（待优化：这个分配策略后续看是否要优化，现在不会只回裁片仓）
+统计各个库区的空箱数量， 根据统计到的空箱数量， 优先去空箱数量小于 60 的库区
+都大于 60 的情况下， 尝试去 空库位多的库区
+  Row2: 辅料裁片仓载具混用 | 裁片仓、辅料仓载具支持混用，进入仓库后会变更载具归属（关联）仓库
+  Row3: 出入库流水问题 | 面料仓（技术有配置：【载具收货】可限制二次收货流水=0的数据）
+裁片仓（扎卡生成，wms同步并自动收货，员工不操作入库；27发版过滤重复的收货数据）
+辅料仓（27发版过滤重复的收货数据）
+成品仓（27发版【箱载收货】可限制二次收货流水=0的数据）

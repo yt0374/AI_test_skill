@@ -1,0 +1,85 @@
+【千虹】713面料仓
+业务流程
+面料入库
+sequenceDiagram
+    participant ERP
+    participant WMS
+    participant WCS
+    ERP->>WMS: 面料同步
+    WMS-->>ERP: 同步结果回调
+    Note over ERP,WMS: 【API】物料清单同步
+    ERP->>WMS: 入库/余布入库
+    WMS-->>ERP: 入库结果回调
+    Note over ERP,WMS: 【API】入库
+    ERP->>WMS: 物料ID+载具绑定
+    WMS-->>ERP: 绑定结果回调
+    Note over ERP,WMS: 【API】货载绑定
+    ERP->>WMS: 上架（目标库区）
+    Note over ERP,WMS: 【API】移动
+ WCS->>WCS: 上架口，电子眼扫托盘码
+    WMS->>WMS: 目标库位(分配)
+    WMS->>WCS: 上架任务
+    WCS->>WMS: 获取(目标库位)
+    WMS->>WCS: 创建上架任务
+    WCS->>WCS: 执行上架
+    WCS-->>WMS: 上架完成
+    WMS->>WMS: 更新库存与库位
+    WMS-->>ERP: 上架结果回调
+面料出库
+sequenceDiagram
+    participant ERP
+    participant WMS
+    participant WCS
+    ERP->>WMS: 下架（目标库区）
+    Note over ERP,WMS: 【API】下架
+    WMS->>WCS: 下架任务
+    WCS-->>WMS: 下架成功
+    WMS-->>ERP: 下架结果回调
+    ERP->>WMS: 出库
+    WMS-->>ERP: 出库结果回调
+    Note over ERP,WMS: 【API】出库
+    ERP->>WMS: 库外移动
+    Note over ERP,WMS: 【API】移动
+    WMS->>WCS: 移动
+    WCS-->>WMS: 移动成功
+    WMS-->>ERP: 移动结果回调
+
+仓库功能
+库区优化
+
+工作区列表
+
+物料清单（面/辅/裁片/成品）
+
+接口业务字段说明（参考）
+【标】物料清单同步
+
+ERP同步推送接口/中间表
+行数据维度：物料唯一码
+【标】货载绑定/解绑
+ERP调WMS
+行数据维度：托盘条码号
+WMS回调
+【标】入库
+ERP指令
+行数据维度：物料唯一码
+WMS回调
+【标】出库（同入库字段）
+【标】移动（上架/下架/库外移动）
+ERP指令
+行数据维度：指令单
+WMS回调
+【标】库存查询
+查询条件
+WMS返回结果
+行数据维度：物料唯一码
+【标】库区查询
+查询条件
+
+WMS返回结果
+行数据维度：库区
+【标】载具查询
+
+查询条件
+WMS返回结果
+行数据维度：托盘条码号

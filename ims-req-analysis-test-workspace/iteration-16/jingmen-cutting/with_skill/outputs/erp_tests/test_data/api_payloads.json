@@ -1,0 +1,4 @@
+{
+  "_description": "API test payloads placeholder - no API specs defined in requirements",
+  "_note": "The Jingmen Cutting System 2.0 requirements document is UI-heavy (page flows + forms + state machines) with no API interface definitions. This file exists as a placeholder for future API test data when API specs become available."
+}

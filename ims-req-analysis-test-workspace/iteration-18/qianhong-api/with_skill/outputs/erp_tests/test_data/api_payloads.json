@@ -1,0 +1,162 @@
+{
+  "material_sync_minimal": {
+    "requestId": "{{uuid}}",
+    "itemType": "fabric",
+    "initInventory": false,
+    "itemList": [
+      {
+        "itemNo": "FN-TEST-{{uuid}}",
+        "materialExtendCode": "MAT-TEST-001",
+        "materialName": "测试面料",
+        "batchNo": "BATCH-TEST-001",
+        "itemUnit": "M",
+        "itemAmount": 1000.0
+      }
+    ]
+  },
+  "material_sync_init_inventory": {
+    "requestId": "{{uuid}}",
+    "itemType": "fabric",
+    "initInventory": true,
+    "itemList": [
+      {
+        "itemNo": "FN-INIT-{{uuid}}",
+        "materialExtendCode": "MAT-INIT-001",
+        "materialName": "初始化库存面料",
+        "batchNo": "BATCH-INIT-001",
+        "itemUnit": "M",
+        "itemAmount": 5000.0
+      }
+    ]
+  },
+  "material_sync_extended": {
+    "requestId": "{{uuid}}",
+    "itemType": "fabric",
+    "initInventory": false,
+    "itemList": [
+      {
+        "itemNo": "FN-EXT-{{uuid}}",
+        "materialExtendCode": "MAT-EXT-001",
+        "materialName": "扩展属性面料",
+        "batchNo": "BATCH-EXT-001",
+        "itemUnit": "M",
+        "itemAmount": 3000.0,
+        "vatCode": "VAT-001",
+        "lotCode": "LOT-A",
+        "fabricNo": "FAB-001",
+        "breadthValue": 150.0,
+        "breadthUnit": "M",
+        "weightValue": 250.0,
+        "weightUnit": "KG",
+        "ingredient": "100%涤纶",
+        "needInspection": "0",
+        "purveyor": "测试供应商",
+        "incomingDate": "2026-07-01"
+      }
+    ]
+  },
+  "carrier_task_put_on": {
+    "taskType": "PUT_ON",
+    "carrierNo": "PALLET-001",
+    "sourceLocationCode": "WCS-A-01-01",
+    "targetSpaceCode": "ZONE-STORAGE"
+  },
+  "carrier_task_put_down": {
+    "taskType": "PUT_DOWN",
+    "carrierNo": "PALLET-001",
+    "sourceLocationCode": "WCS-A-01-01",
+    "targetSpaceCode": "ZONE-SHIPPING"
+  },
+  "carrier_task_move_outside": {
+    "taskType": "MOVE_OUTSIDE",
+    "carrierNo": "PALLET-001",
+    "sourceLocationCode": "WCS-A-01-01",
+    "targetSpaceCode": "ZONE-OUTSIDE"
+  },
+  "carrier_bind_incr": {
+    "requestId": "{{uuid}}",
+    "carrierNo": "PALLET-001",
+    "bindType": "BIND",
+    "linkMode": "INCR",
+    "itemType": "fabric",
+    "itemList": [{"itemNo": "FN-TEST-{{uuid}}"}]
+  },
+  "carrier_bind_full": {
+    "requestId": "{{uuid}}",
+    "carrierNo": "PALLET-001",
+    "bindType": "BIND",
+    "linkMode": "FULL",
+    "itemType": "fabric",
+    "itemList": [{"itemNo": "FN-TEST-{{uuid}}"}]
+  },
+  "carrier_unbind_full": {
+    "requestId": "{{uuid}}",
+    "carrierNo": "PALLET-001",
+    "bindType": "UNBIND",
+    "linkMode": "FULL",
+    "itemType": "fabric"
+  },
+  "stock_inbound": {
+    "requestId": "{{uuid}}",
+    "flowType": "1",
+    "itemList": [
+      {"itemNo": "FN-TEST-{{uuid}}", "itemUnit": "M", "itemAmount": 5000.0}
+    ]
+  },
+  "stock_outbound": {
+    "requestId": "{{uuid}}",
+    "flowType": "2",
+    "itemList": [
+      {"itemNo": "FN-INVENTORY-001", "itemUnit": "M", "itemAmount": 500.0}
+    ]
+  },
+  "production_order_minimal": {
+    "productionOrderNo": "PO-TEST-{{uuid}}",
+    "styleCode": "STYLE-001",
+    "styleName": "测试款号"
+  },
+  "production_order_full": {
+    "productionOrderNo": "PO-FULL-{{uuid}}",
+    "styleCode": "STYLE-001",
+    "styleName": "测试款号全字段",
+    "brandName": "测试品牌",
+    "detailList": [
+      {
+        "garmentColorCode": "RED001",
+        "garmentColorName": "红色",
+        "garmentSizeCode": "SIZE_M",
+        "garmentSizeName": "M",
+        "number": 100
+      }
+    ],
+    "procedureList": [
+      {
+        "procedureNumber": "01",
+        "procedureName": "裁剪",
+        "procedureCode": "CUT-01",
+        "sam": "5.0",
+        "price": 10
+      }
+    ]
+  },
+  "sewing_task_minimal": {
+    "sewingCode": "SG-TEST-{{uuid}}",
+    "productionOrderNo": "PO-TEST-001",
+    "styleCode": "STYLE-001"
+  },
+  "sewing_task_full": {
+    "sewingCode": "SG-FULL-{{uuid}}",
+    "productionOrderNo": "PO-TEST-001",
+    "styleCode": "STYLE-001",
+    "detailList": [
+      {
+        "garmentColorCode": "RED001",
+        "garmentColorName": "红色",
+        "garmentSizeCode": "SIZE_M",
+        "garmentSizeName": "M",
+        "number": 100,
+        "orderNo": 1
+      }
+    ]
+  }
+}

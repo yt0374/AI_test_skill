@@ -1,0 +1,191 @@
+Tables: 17
+
+=== TABLE 1 (3 rows x 5 cols) ===
+序号 | 内容说明 | 优先级 | 禅道任务 | 计划上线时间
+1 | 接口 【千虹-标准】库存、库区、载具查询API 【千虹-标准】移动API 【千虹-标准】入库API & 出库API 【荆门-标准】货载绑定API 【千虹-标准】物料清单同步API（面料） 【千虹-定制】硬件上下架对接（含电子眼） |  |  | 
+2 | 功能优化 库区优化—作业区属性、动作配置 工作区列表—兼容库区配置 面料物料清单优化—新增版本快照 |  |  | 
+
+=== TABLE 2 (8 rows x 3 cols) ===
+编号 | 内容 | 说明
+1 | 【列表/搜索】新增：存储区类别 | 枚举：自动库/人工库/- 搜索条件：单选
+2 | 【列表/搜索】新增：作业区属性 | 枚举：收货作业区、上架目标作业区、下架目标作业区、移库目标作业区、PAD绑定工作站、开箱移库作业区（数据库不删，配置不选） 搜索条件：单选
+3 | 【列表/搜索】到达后自动动作 | 枚举：自动收货、自动出库、自动载具解绑、自动料架载具解绑（后续枚举可➕） 搜索条件：单选
+4 | 【列表/搜索】新增：启用状态 | 枚举：启用/禁用 搜索条件：单选
+5 | 【列表】可用库位数 | 内容：库位管理中对应库位的数量总和（仅包含启用数）
+6 | 新增/编辑 | 库区编码：新增不显示、编辑不能修改 库区名称、启用状态：编辑可改（其他不能改）
+7 | 动作配置 | 动作名称、编码：技术先配好（后续能加） 关联作业区属性（支持多选）：基于库区对应动作定义触发节点
+
+=== TABLE 3 (6 rows x 3 cols) ===
+编号 | 内容 | 说明
+1 | 自动同步 | 库区配置，默认同步至【工作区列表】 行数据：库区&作业区属性唯一
+2 | 作业区名称（自动创建） | = 绑定库区名称-作业区属性
+3 | 路径 | 目标区：作为目的地 起点区：作为动作起点
+4 | 到达后自动动作 | 同步库区配置，仅路径=目的区，有对应自动动作
+5 | 编辑 | 仅支持编辑【作业区名称】
+
+=== TABLE 4 (3 rows x 3 cols) ===
+编号 | 内容 | 说明
+1 | 更新时间 | 创建时间 改成【更新时间】清单版本更新时间（列表/搜索）
+2 | 版本号 | 同【物料唯一码】更新数量重新生成快照（数量=0不存快照）
+
+=== TABLE 5 (25 rows x 6 cols) ===
+分类 | 字段（中文） | API 字段 | 类型 | 必填 | 说明/枚举
+【标准】 | 物料唯一码 | materialUniqueCode | string | Y | 客户系统打码？FN2603060043
+【标准】 | 物料类型 | materialUniqueCode | string | Y | 面料、辅料、裁片、成衣、成品
+【标准】 | 物料编码 | materialCode | string | Y | 
+【标准】 | 物料名称 | materialName | string | Y | 
+【标准】 | 物料色号 | colorCode | string | Y | 
+【标准】 | 物料色称 | colorName | string | Y | 
+【扩展】面料 | 缸号 | lotNo | string |  | 
+【扩展】面料 | 卷号 | rollNo | string | Y | 
+【标准】 | 单位 | uom | string | Y | 
+【标准】 | 物料尺码 | colorName | string |  | 
+【标准】 | 来料数量 | arrivalQty | decimal |  | 收货时清单版本数量
+【标准】 | 版本号 |  | string |  | 
+【标准】 | 款号 | styleCode | string |  | 
+【标准】 | 生产订单号 | productionOrderNo | string |  | 
+【标准】 | 入库日期 |  | string |  | YYYY-MM-DD
+【扩展】面料 | 布号 | clothNo | string |  | 供应商面料编码
+【扩展】面料 | 幅宽 | width | decimal |  | 
+【扩展】面料 | 幅宽单位 | widthUom | string |  | 
+【扩展】面料 | LOT色 | lotColor | string |  | 
+【扩展】面料/辅料 | 采购单号 |  | string |  | 
+【扩展】面料/辅料 | 收货通知单号 | receiptNoticeNo | string |  | 
+【扩展】面料/辅料 | 供应商 | supplierName | string |  | 
+【扩展】面料 | 松布状态 |  | boolean |  | 待松布、已松布、免松
+【扩展】面料/辅料 | 检验状态 | materialCategory | string |  | 待检验、合格、不合格
+
+=== TABLE 6 (7 rows x 5 cols) ===
+字段（中文） | API 字段 | 类型 | 必填 | 说明
+托盘条码号 | carrierCode | string | Y | 
+托盘类型 | carrierCode | string | Y | 面料托盘、裁片箱、松布架、成品箱、超规格辅料框、辅料箱
+所属仓库 | warehouseCode | string | Y | 
+物料类型 |  | string | Y | 面料、辅料、裁片、成衣、成品
+物料唯一码 | materialUniqueCode | string | Y | 同步推送2.1最新物料清单
+版本号 |  | string |  | WMS留关联清单版本
+
+=== TABLE 7 (3 rows x 3 cols) ===
+字段（中文） | API 字段 | 说明
+绑定状态 | status | 成功、失败
+失败原因 | failReason | 回调失败时
+
+=== TABLE 8 (10 rows x 4 cols) ===
+字段（中文） | API 字段 | 必填 | 说明
+指令单 |  | Y | 
+出入库类型 |  | Y | 入库、出库
+托盘条码号 | carrierCode | Y | 
+托盘类型 | carrierCode | Y | 面料托盘、裁片箱、松布架、成品箱、超规格辅料框、辅料箱
+目标仓库 | warehouseCode | Y | 
+作业区属性 | workAreaAttr |  | 收货作业区、上架目标作业区、下架目标作业区、移库目标作业区、PAD绑定工作站
+目标仓区 | zoneCode | Y | 
+物料唯一码 | materialUniqueCode | Y | 
+版本号 |  | string | 
+
+=== TABLE 9 (9 rows x 3 cols) ===
+字段（中文） | API 字段 | 说明
+托盘条码号 | carrierCode | 
+状态 | status | 成功、失败
+失败原因 | failReason | 回调失败时
+仓库 | warehouseCode | 
+库区 | zoneCode | 
+库位 | locationCode | 
+层/列 | level / column | 立库坐标
+完成时间 | completeTime | 
+
+=== TABLE 10 (10 rows x 4 cols) ===
+字段（中文） | API 字段 | 必填 | 说明
+指令单 |  | Y | 
+类型 |  |  | 上架、下架、库外移动
+托盘条码号 | carrierCode | Y | 
+托盘类型 | carrierCode | Y | 面料托盘、裁片箱、松布架、成品箱、超规格辅料框、辅料箱
+目标仓库 | warehouseCode | Y | 
+作业区属性 | workAreaAttr |  | 收货作业区、上架目标作业区、下架目标作业区、移库目标作业区、PAD绑定工作站
+目标仓区 | zoneCode | Y | 
+物料唯一码 | materialUniqueCode | Y | 
+版本号 |  | string | 
+
+=== TABLE 11 (9 rows x 3 cols) ===
+字段（中文） | API 字段 | 说明
+托盘条码号 | carrierCode | 
+状态 | status | 成功、失败
+失败原因 | failReason | 回调失败时
+仓库 | warehouseCode | 
+库区 | zoneCode | 
+库位 | locationCode | 
+层/列 | level / column | 立库坐标
+完成时间 | completeTime | 
+
+=== TABLE 12 (13 rows x 4 cols) ===
+分类 | 字段（中文） | API 字段 | 必填
+【标准】 | 所属仓库 | warehouseCode | N
+【标准】 | 物料唯一码 | materialUniqueCode | N
+【标准】 | 物料编码 | materialCode | N
+【标准】 | 款号 | styleCode | N
+【标准】 | 生产订单号 | productionOrderNo | N
+【标准】 | 物料色号 | colorCode | N
+【扩展】面料 | 缸号 | lotNo | N
+【扩展】面料 | 卷号 | rollNo | N
+【扩展】面料/辅料 | 检验状态 | materialCategory | 
+【标准】 | 库区 | zoneCode | N
+【标准】 | 库位 | locationCode | N
+【标准】 | 载具条码 | carrierCode | N
+
+=== TABLE 13 (20 rows x 4 cols) ===
+分类 | 字段（中文） | API 字段 | 说明
+【标准】 | 物料唯一码 | materialUniqueCode | 
+【标准】 | 物料编码 | materialCode | 
+【标准】 | 物料名称 | materialName | 
+【标准】 | 库存数量 | onHandQty | 
+【标准】 | 单位 | uom | 
+【标准】 | 所属仓库 | warehouseCode | 
+【标准】 | 物料色号/色称 | colorCode / colorName | 
+【扩展】面料 | 缸号 | lotNo | 
+【扩展】面料 | 卷号 | lrollNo | 
+【扩展】面料 | 布号 | lclothNo | 
+【标准】 | 所属库区 | zoneCode | 
+【标准】 | 库位 | locationCode | 
+【标准】 | 载具条码 | carrierCode | 
+【标准】 | 实收数量 | receivedQty | 
+【标准】 | 收货完成时间 | receiveCompleteTime | 
+【标准】 | 上架完成时间 | completeTime | 
+【扩展】面料/辅料 | 供应商 | supplierName | 
+【标准】 | 检验状态 | inspectStatus | 待检验、合格、不合格
+【扩展】面料 | 松布状态 | boolean | 待松布、已松布、免松
+
+=== TABLE 14 (6 rows x 3 cols) ===
+字段（中文） | API 字段 | 必填
+所属仓库 | warehouseCode | N
+库区编码 | zoneCode | N
+库区类型 | zoneType | N
+作业区属性 | workAreaAttr | N
+启用状态 | enabled | N
+
+=== TABLE 15 (8 rows x 2 cols) ===
+API 字段 | 说明/枚举
+仓库编码 | warehouseCode
+库区编码 | zoneCode
+库区名称 | zoneName
+库区类型 | zoneType
+作业区属性 | workAreaAttr
+启用状态 | enabled
+库区可用库位 | enabled
+
+=== TABLE 16 (3 rows x 3 cols) ===
+字段（中文） | API 字段 | 必填
+托盘条码号 | carrierCode | Y
+所属仓库 | warehouseCode | Y
+
+=== TABLE 17 (13 rows x 3 cols) ===
+字段（中文） | API 字段 | 说明/枚举
+托盘条码号 | carrierCode | 
+托盘类型 | carrierType | 
+所属仓库 | warehouseCode | 
+货载状态 | loadStatus | 空载/货载➡️货载状态，枚举：空载、货载
+上架状态 | carrierStatus | 载具状态➡️上架状态
+打印状态 | printStatus | 
+载具状态 | preparationStatus | 启用、禁用
+当前任务号 | taskNo | 
+当前库区 | zoneCode | 
+当前库位 | locationCode | 
+最近上架时间 | lastPutawayTime | 
+最近下架时间 | lastPickTime | 

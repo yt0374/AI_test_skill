@@ -1,0 +1,22 @@
+[
+  {"query": "我们瑞晟ERP的销售模块要加信用额度检查功能，销售员下单时超过额度就拦截，帮我分析下需求然后生成测试用例", "should_trigger": true},
+  {"query": "帮我生成瑞晟IMS系统采购模块的测试计划，要覆盖从物料需求到采购订单的完整流程", "should_trigger": true},
+  {"query": "瑞晟仓库盘点功能需要写一批自动化测试脚本，用Playwright，要支持数据驱动，不同仓库类型都要测到", "should_trigger": true},
+  {"query": "我刚接手的这个IMS项目，质检模块完全不熟，能帮我分析下质检的业务流程然后出一份测试方案吗", "should_trigger": true},
+  {"query": "生产模块那边说缝制任务的产前准备经常出问题，帮我看看这块应该怎么测，要覆盖状态机所有转换路径", "should_trigger": true},
+  {"query": "帮我读一下module_texts.txt里面的数据，然后生成一份测试数据清单，再把销售订单相关的P0冒烟用例写了", "should_trigger": true},
+  {"query": "下周要上线WMS开箱模块，帮我做个完整的测试方案：需求分析、用例、脚本、执行计划、报告模板都要", "should_trigger": true},
+  {"query": "领导要看上次测试的结果报告，帮我把pytest执行结果整理成测试报告，要有通过率、缺陷统计、需求追溯", "should_trigger": true},
+  {"query": "吊挂系统的挂片换款流程怎么测？好像涉及产前准备、工序编排、站位管理一堆东西", "should_trigger": true},
+  {"query": "最近在搞数据驱动测试，瑞晟ERP的辅料收货有三种模式（先录后贴、无箱贴、先贴后录），每种都要用不同数据跑一遍，帮我生成参数化的测试用例和测试数据", "should_trigger": true},
+  {"query": "帮我写个SAP系统的采购订单测试用例", "should_trigger": false},
+  {"query": "这个React组件的单元测试怎么写？用Jest，要覆盖所有的props组合", "should_trigger": false},
+  {"query": "帮我把这段Python代码重构一下，提高性能，主要是循环里面有数据库查询", "should_trigger": false},
+  {"query": "我们用的是用友U8，帮我分析下财务模块的凭证生成流程", "should_trigger": false},
+  {"query": "写一个通用的Web自动化测试框架，不限于任何系统，要支持多浏览器", "should_trigger": false},
+  {"query": "帮我review一下这个PR，主要看有没有SQL注入的风险", "should_trigger": false},
+  {"query": "能不能帮我生成一份软件测试报告模板？就是那种通用的，什么项目都能用的", "should_trigger": false},
+  {"query": "数据库里有一批订单数据需要清洗，帮写个SQL把重复的找出来", "should_trigger": false},
+  {"query": "我有个电商系统要做压力测试，目标5000并发，帮我设计测试方案", "should_trigger": false},
+  {"query": "用Playwright帮我写个脚本，自动登录百度然后搜索关键词，把结果截图保存", "should_trigger": false}
+]

@@ -1,0 +1,51 @@
+{
+  "execution": {
+    "timestamp": "2026-07-03T00:00:00",
+    "environment": "SIT (千虹_测试)",
+    "base_url": "http://test.fj.dtsimple.pro/api/ims-open-api",
+    "duration_seconds": 0,
+    "total": 112,
+    "passed": 0,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "pass_rate": 0.0,
+    "_note": "首轮执行 — 实际数据待SIT环境运行后填充"
+  },
+  "by_priority": {
+    "p0": {"total": 17, "passed": 0, "failed": 0, "pass_rate": 0.0, "status": "pending"},
+    "p1": {"total": 33, "passed": 0, "failed": 0, "pass_rate": 0.0, "status": "pending"},
+    "p2": {"total": 54, "passed": 0, "failed": 0, "pass_rate": 0.0, "status": "pending"},
+    "p3": {"total": 8, "passed": 0, "failed": 0, "pass_rate": 0.0, "status": "pending"}
+  },
+  "by_endpoint": {
+    "/public/auth/authorization": {"total": 8, "passed": 0, "failed": 0},
+    "/wms/v3/carrier/info": {"total": 8, "passed": 0, "failed": 0},
+    "/wms/v3/warehouse/space": {"total": 6, "passed": 0, "failed": 0},
+    "/wms/v3/warehouse/space/list": {"total": 6, "passed": 0, "failed": 0},
+    "/wms/v3/carrier/task/execute": {"total": 8, "passed": 0, "failed": 0},
+    "/wms/v3/material/item/sync": {"total": 8, "passed": 0, "failed": 0},
+    "/wms/v3/carrier/item/link": {"total": 10, "passed": 0, "failed": 0},
+    "/wms/v3/material/item/stock/flow": {"total": 6, "passed": 0, "failed": 0},
+    "/wms/v3/material/item/inbound": {"total": 5, "passed": 0, "failed": 0},
+    "/wms/v3/material/item/outbound": {"total": 5, "passed": 0, "failed": 0},
+    "/wms/v3/material/item/inventory": {"total": 7, "passed": 0, "failed": 0},
+    "/production/v3/save": {"total": 6, "passed": 0, "failed": 0},
+    "/sewing/v3/save": {"total": 6, "passed": 0, "failed": 0},
+    "SPI: carrier_task_callback": {"total": 6, "passed": 0, "failed": 0},
+    "SPI: material_sync_callback": {"total": 6, "passed": 0, "failed": 0}
+  },
+  "failures": [],
+  "coverage": {
+    "endpoint_coverage": 1.0,
+    "boundary_ratio": 0.518,
+    "enum_coverage": 1.0,
+    "data_variation_coverage": 0.93
+  },
+  "audit_issues": {
+    "critical": 8,
+    "warning": 10,
+    "assumptions": 7,
+    "pending_clarifications": 16
+  }
+}

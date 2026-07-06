@@ -1,0 +1,54 @@
+{
+  "_description": "SIT测试环境 — 标准IMS部署，用于功能验证和回归测试",
+  "type": "sit",
+  "url": "http://test.fj.dtsimple.pro",
+  "credentials": {
+    "username": "admin",
+    "password": "metas2660"
+  },
+  "ui": {
+    "sidebar": {
+      "module_selector": ".mts-layout-mix-sider-module__item",
+      "module_names": {
+        "样衣": "gm.样衣#1", "销售": "gm.销售#1", "采购": "gm.采购#2",
+        "仓库": "gm.仓库#1", "生产": "gm.生产#3", "质检": "gm.质检#1",
+        "物流": "gm.物流#1", "报表": "gm.报表#1", "数据": "gm.数据#1",
+        "吊挂": "gm.吊挂#1", "平板": "gm.平板#1", "人事": "gm.人事#1",
+        "看板": "gm.看板#1", "系统": "gm.系统#1"
+      },
+      "expand_trigger": ".menu-trigger",
+      "submenu_selector": ".third-menu:not(.font-600)"
+    },
+    "page_title_format": "gm.首页#2 - 麦塔西智能制造协同平台",
+    "login": {
+      "username_selector": "#form_item_username",
+      "password_selector": "#form_item_password",
+      "submit_selector": ".ant-btn-primary",
+      "has_enterprise_selector": true,
+      "enterprise_selector": ".ant-select",
+      "enterprise_option_selector": ".ant-select-item-option-content",
+      "enterprise_default": "最佳智造",
+      "enterprise_options": [
+        "最佳智造", "安吉纳_测试", "红动_测试", "太平鸟工厂",
+        "越南鹰美_测试", "菲律宾飞雁_测试", "裕美印尼_测试",
+        "申洲申泽_测试", "实验室", "荆门鹰美_测试",
+        "凯奥尼_测试", "合泰_测试", "千虹_测试"
+      ],
+      "flow": "username → password → select enterprise → click login"
+    }
+  },
+  "url_patterns": {
+    "销售订单": "/#/sale/order/saleList",
+    "订单预排期": "/#/sale/scheduling/orderScheduling",
+    "物料需求审核": "/#/purchase/demand/audit",
+    "按单物料需求": "/#/purchase/demand/requirement",
+    "生产订单": "/#/production/plan/order",
+    "面料库存管理": "/#/warehouse/fabric/stock",
+    "面料仓出入库流水": "/#/warehouse/fabric/flow"
+  },
+  "features": {
+    "has_third_menu": true,
+    "has_dashboard_cards": false,
+    "module_name_format": "gm.{name}#{N}"
+  }
+}

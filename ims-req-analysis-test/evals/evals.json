@@ -1,0 +1,80 @@
+{
+  "skill_name": "ims-req-analysis-test",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "瑞晟ERP销售模块：销售员创建销售订单时自动检查客户信用额度，超额度拦截；多款号各不超过库存80%。完整需求分析→测试用例→自动化→报告。",
+      "expected_output": "需求规格+覆盖矩阵+测试用例(统一文档)+Playwright项目+执行配置+报告",
+      "assertions": [
+        "requirements_spec.md covers credit limit + inventory 80% rules",
+        "requirements_audit.md identifies document issues",
+        "test_cases.md follows unified 8-chapter format",
+        "test_coverage_matrix.md maps requirements to tests",
+        "test_cases.md contains P0-P3 priority distribution",
+        "erp_tests/ Playwright project exists",
+        "pytest.ini + run_tests.sh/ps1 exist with markers",
+        "test_report.md + traceability_report.md exist",
+        "Flaky strategy + Trend analysis present"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "瑞晟ERP采购模块：生产订单→物料需求审核→采购计划→备货通知单→采购订单完整链路。需求分析→测试用例→自动化→报告。",
+      "expected_output": "需求规格+覆盖矩阵+测试用例+自动化+报告",
+      "assertions": [
+        "requirements_spec.md covers cross-module flow 生产→采购",
+        "test_cases.md contains P3 integration tests",
+        "test_cases.md uses real ERP page names",
+        "erp_tests/ exists",
+        "pytest.ini + run scripts exist",
+        "Flaky strategy present",
+        "test_report.md + traceability exist",
+        "Trend analysis present"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "瑞晟ERP仓库盘点功能：创建盘点单→生成任务→录入实际数量→差异报告→主管审核调整单。需求分析→测试用例→Playwright→报告。",
+      "expected_output": "需求规格+测试用例+Playwright项目+报告",
+      "assertions": [
+        "requirements_spec.md covers full workflow with state machines",
+        "test_cases.md with parametrized data tables",
+        "erp_tests/ with conftest+parametrize+data_loader",
+        "pytest.ini + run scripts",
+        "Flaky strategy: quarantine+retry",
+        "test_report + traceability + trend",
+        "Defect template present"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "根据需求文档 D:\\需求文档\\宁波千虹服饰-面料仓需求设计.docx 做完整测试方案。文档含8个API接口规范、2条业务流程。",
+      "expected_output": "统一测试文档(8章)+API Spec+自动化项目+环境报告",
+      "assertions": [
+        "requirements_spec.md covers 8 APIs + 2 flows",
+        "requirements_audit.md identifies field conflicts and type mismatches",
+        "test_cases.md in unified 8-chapter format with A-xx API cases",
+        "test_coverage_matrix.md exists",
+        "API YAML block embedded in test_cases.md",
+        "erp_tests/ with test_api.py",
+        "pytest.ini + run scripts + flaky strategy",
+        "test_report + traceability + trend + defects"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "瑞晟ERP质检模块需要API接口测试：面料质检配置接口（检验比例/扣分标准）、辅料质检提交接口、质检审批回调接口。生成完整的API测试方案和可执行脚本。",
+      "expected_output": "API test spec + generated pytest + environment probe report",
+      "assertions": [
+        "requirements_audit.md identifies API field issues",
+        "API spec with YAML frontmatter (kind: api_pytest)",
+        "test cases cover H+X per endpoint",
+        "extract_vars chain with depends_on",
+        "Security cases (no_auth) present",
+        "Data-driven enum coverage present",
+        "Generated pytest collectible (39+ tests)",
+        "Environment probe report generated"
+      ]
+    }
+  ]
+}

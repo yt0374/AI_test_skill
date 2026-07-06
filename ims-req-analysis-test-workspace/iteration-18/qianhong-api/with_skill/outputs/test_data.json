@@ -1,0 +1,117 @@
+{
+  "auth": {
+    "description": "认证测试数据",
+    "dataset": [
+      {"id": "D01-1", "username": "admin", "password": "IMS@2026", "expect_status": 200, "expect_message": "success"},
+      {"id": "D01-2", "username": "admin", "password": "WrongPassword123", "expect_status": 401},
+      {"id": "D01-3", "username": "nonexistent_user", "password": "any", "expect_status": 401},
+      {"id": "D01-4", "username": "", "password": "", "expect_status": 400},
+      {"id": "D01-5", "username": null, "password": "IMS@2026", "expect_status": 400}
+    ]
+  },
+  "carrier_query": {
+    "description": "载具查询测试数据",
+    "dataset": [
+      {"id": "D02-1", "carrierNo": "PALLET-001", "depth": 3, "expect_status": 200},
+      {"id": "D02-2", "carrierNo": "NONEXIST-CARRIER", "depth": null, "expect_status": 200},
+      {"id": "D02-3", "carrierNo": "", "depth": null, "expect_status": 400},
+      {"id": "D02-4", "carrierNo": "PALLET-001", "depth": 0, "expect_status": 200},
+      {"id": "D02-5", "carrierNo": "PALLET-001", "depth": 99, "expect_status": 200}
+    ]
+  },
+  "carrier_task": {
+    "description": "载具任务测试数据",
+    "dataset": [
+      {"id": "D03-1", "taskType": "PUT_ON", "expect_status": 200},
+      {"id": "D03-2", "taskType": "PUT_DOWN", "expect_status": 200},
+      {"id": "D03-3", "taskType": "MOVE_OUTSIDE", "expect_status": 200},
+      {"id": "D03-4", "taskType": "INVALID", "expect_status": 400}
+    ]
+  },
+  "bind_combinations": {
+    "description": "货载绑定4种操作组合",
+    "dataset": [
+      {"id": "D05-1", "bindType": "BIND", "linkMode": "INCR", "hasItemList": true, "expect_status": 200},
+      {"id": "D05-2", "bindType": "BIND", "linkMode": "FULL", "hasItemList": true, "expect_status": 200},
+      {"id": "D05-3", "bindType": "UNBIND", "linkMode": "INCR", "hasItemList": true, "expect_status": 200},
+      {"id": "D05-4", "bindType": "UNBIND", "linkMode": "FULL", "hasItemList": false, "expect_status": 200}
+    ]
+  },
+  "stock_flow": {
+    "description": "物料出入库flowType测试",
+    "dataset": [
+      {"id": "D06-1", "flowType": "1", "description": "入库", "expect_status": 200},
+      {"id": "D06-2", "flowType": "2", "description": "出库", "expect_status": 200},
+      {"id": "D06-3", "flowType": "3", "description": "非法", "expect_status": 400}
+    ]
+  },
+  "pagination": {
+    "description": "库存查询分页边界",
+    "dataset": [
+      {"id": "D07-1", "pageNo": 1, "pageSize": 20, "expect_status": 200},
+      {"id": "D07-2", "pageNo": 0, "pageSize": 20, "expect_status": 200},
+      {"id": "D07-3", "pageNo": -1, "pageSize": 20, "expect_status": 200},
+      {"id": "D07-4", "pageNo": 1, "pageSize": 20, "expect_status": 200},
+      {"id": "D07-5", "pageNo": 1, "pageSize": 0, "expect_status": 200},
+      {"id": "D07-6", "pageNo": 1, "pageSize": 101, "expect_status": 200}
+    ]
+  },
+  "item_type_enum": {
+    "description": "物料类型枚举全覆盖",
+    "valid": ["fabric", "trim", "garment", "cuttingPieces"],
+    "invalid": ["invalid_type", "", "semiFinished"]
+  },
+  "task_type_enum": {
+    "description": "任务类型枚举全覆盖",
+    "valid": ["PUT_ON", "PUT_DOWN", "MOVE_OUTSIDE"],
+    "invalid": ["INVALID", "", "MOVE_INSIDE"]
+  },
+  "warehouse_types": {
+    "description": "仓库类型编码",
+    "A": "面料仓",
+    "C": "裁片仓",
+    "D": "成品仓",
+    "G": "辅料仓"
+  },
+  "api_payloads": {
+    "material_sync_minimal": {
+      "requestId": "{{uuid}}",
+      "itemType": "fabric",
+      "initInventory": false,
+      "itemList": [
+        {
+          "itemNo": "FN-TEST-{{uuid}}",
+          "materialExtendCode": "MAT-TEST-001",
+          "materialName": "测试面料",
+          "batchNo": "BATCH-TEST-001",
+          "itemUnit": "M",
+          "itemAmount": 1000.0
+        }
+      ]
+    },
+    "carrier_task_put_on": {
+      "taskType": "PUT_ON",
+      "carrierNo": "PALLET-001",
+      "sourceLocationCode": "WCS-A-01-01",
+      "targetSpaceCode": "ZONE-STORAGE"
+    },
+    "carrier_bind_incr": {
+      "requestId": "{{uuid}}",
+      "carrierNo": "PALLET-001",
+      "bindType": "BIND",
+      "linkMode": "INCR",
+      "itemType": "fabric",
+      "itemList": [{"itemNo": "FN-TEST-{{uuid}}"}]
+    },
+    "production_order_minimal": {
+      "productionOrderNo": "PO-TEST-{{uuid}}",
+      "styleCode": "STYLE-001",
+      "styleName": "测试款号"
+    },
+    "sewing_task_minimal": {
+      "sewingCode": "SG-TEST-{{uuid}}",
+      "productionOrderNo": "PO-TEST-001",
+      "styleCode": "STYLE-001"
+    }
+  }
+}

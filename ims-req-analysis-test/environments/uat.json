@@ -1,0 +1,58 @@
+{
+  "_description": "UAT验收环境 — 客户验收测试，企业密码差异化",
+  "type": "uat",
+  "url": "http://uat.fj.dtsimple.pro",
+  "credentials": {
+    "username": "admin",
+    "password": "metas2660",
+    "_note": "最佳智造企业使用 qwe123，其他企业使用 metas2660"
+  },
+  "enterprise_credentials": {
+    "最佳智造": "qwe123",
+    "_default": "metas2660"
+  },
+  "ui": {
+    "sidebar": {
+      "module_selector": ".mts-layout-mix-sider-module__item",
+      "module_names": {
+        "样衣": "gm.样衣#1", "销售": "gm.销售#1", "采购": "gm.采购#2",
+        "仓库": "gm.仓库#1", "生产": "gm.生产#3", "质检": "gm.质检#1",
+        "物流": "gm.物流#1", "报表": "gm.报表#1", "数据": "gm.数据#1",
+        "吊挂": "gm.吊挂#1", "平板": "gm.平板#1", "人事": "gm.人事#1",
+        "看板": "gm.看板#1", "系统": "gm.系统#1"
+      },
+      "expand_trigger": ".menu-trigger",
+      "submenu_selector": ".third-menu:not(.font-600)"
+    },
+    "page_title_format": "gm.首页#2 - 麦塔西智能制造协同平台",
+    "login": {
+      "username_selector": "#form_item_username",
+      "password_selector": "#form_item_password",
+      "submit_selector": ".ant-btn-primary",
+      "has_enterprise_selector": true,
+      "enterprise_selector": ".ant-select-selector",
+      "enterprise_default": "最佳智造",
+      "enterprise_options": [
+        "最佳智造", "安吉纳_验收", "红动_验收",
+        "太平鸟_验收", "xinji_uat", "裕美印尼_uat"
+      ],
+      "flow": "username → password → select enterprise → click login",
+      "password_by_enterprise": {
+        "最佳智造": "qwe123",
+        "_default": "metas2660"
+      }
+    }
+  },
+  "url_patterns": {},
+  "features": {
+    "has_third_menu": true,
+    "has_dashboard_cards": false,
+    "module_name_format": "gm.{name}#{N}"
+  },
+  "differences_from_sit": [
+    "仅6个企业（SIT有13个）",
+    "最佳智造密码为qwe123（非metas2660）",
+    "企业后缀为_验收（非_测试）",
+    "企业列表：最佳智造/安吉纳_验收/红动_验收/太平鸟_验收/xinji_uat/裕美印尼_uat"
+  ]
+}

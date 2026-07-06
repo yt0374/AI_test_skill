@@ -1,0 +1,36 @@
+{
+  "_description": "荆门鹰美客户环境 — 生产环境模拟",
+  "type": "customer",
+  "customer": "荆门鹰美",
+  "url": "http://bak.jmym.dtsimple.pro",
+  "credentials": {
+    "username": "admin",
+    "password": "ym5579"
+  },
+  "ui": {
+    "sidebar": {
+      "module_selector": ".mts-layout-mix-sider-module__item",
+      "module_names": {},
+      "expand_trigger": ".menu-trigger",
+      "submenu_selector": null
+    },
+    "page_title_format": "首页 - 麦塔西智能制造协同平台",
+    "login": {
+      "username_selector": "#form_item_username",
+      "password_selector": "#form_item_password",
+      "submit_selector": ".ant-btn-primary",
+      "has_enterprise_selector": false,
+      "flow": "username → password → click login"
+    }
+  },
+  "url_patterns": {},
+  "features": {
+    "has_third_menu": false,
+    "has_dashboard_cards": false,
+    "module_name_format": ""
+  },
+  "differences_from_sit": [
+    "无企业选择器，直接登录",
+    "客户专用环境，模块配置待探测"
+  ]
+}

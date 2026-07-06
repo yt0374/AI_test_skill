@@ -1,0 +1,960 @@
+================================================================================
+DOCUMENT 1: IMS 3.0操作手册.docx
+================================================================================
+
+[P0][Heading 2] 文档说明
+[P1][Heading 4] 文档信息
+[P2][Heading 4] 修改记录
+[P3][dingdocnormal] 《IMS 3.0操作手册更新记录》
+[P4][Heading 2] 配置1
+[P5][Heading 3] 【PC】客户配置（3）
+[P6][dingdocnormal] 请至钉钉文档查看「白板」
+[P8][dingdocnormal] 点击【新增】支持新增客户
+[P9][dingdocnormal] 【新增/编辑客户】支持维护客户基本信息，【*】为必填项，客户编码不可重复
+[P10][dingdocnormal] 支持批量【导入】客户信息；【下载导入模版】将Excel格式下载至本地进行信息编辑，注意红字部分为表格必填信息，客户编码不可重复
+[P11][dingdocnormal] 客户信息编辑完成，点击【选择文件】，上传成功，点击【确认导入】进行数据导入
+[P12][dingdocnormal] 【编辑】客户信息编辑；【复制】快速复制客户信息进行新增；【详情】支持查看不可编辑；【删除】删除客户，并二次确认
+[P13][dingdocnormal] 请至钉钉文档查看「白板」
+[P14][dingdocnormal] Click [Add] to add a new customer.
+[P15][dingdocnormal] [Add/Edit Customer] supports maintaining basic customer information. Fields marked with [*] are mandatory. Customer codes must be unique.
+[P16][dingdocnormal] Supports batch [Import] of customer information; [Download Import Template] downloads an Excel template for local editing. Note: Fields highlighted in red are mandatory in the table, and customer codes must be unique.
+[P17][dingdocnormal] After editing customer information, click [Select File] to upload. Once uploaded successfully, click [Confirm Import] to proceed with data import.
+[P18][dingdocnormal] [Edit] allows modification of customer information; [Copy] quickly duplicates customer information for addition; [Details] supports view-only access (non-editable); [Delete] removes a customer after a secondary confirmation.
+[P19][Heading 3] 【PC】供应商配置（3）
+[P20][dingdocnormal] 请至钉钉文档查看「白板」
+[P22][dingdocnormal] 点击【新增】支持新增供应商
+[P23][dingdocnormal] 【新增供应商】【编辑供应商】支持维护客户基本信息，【*】为必填项，供应商编码不可重复；支持添加地址、银行、信用代码等相关信息
+[P24][dingdocnormal] 支持批量【导入】供应商信息；【下载导入模版】将Excel格式下载至本地进行信息编辑，注意红字部分为表格必填信息，供应商编码不可重复
+[P25][dingdocnormal] 供应商信息编辑完成，点击【选择文件】进行数据导入，上传成功，点击【确认导入】
+[P26][dingdocnormal] 【编辑】供应商信息编辑；【详情】支持查看不可编辑；【删除】删除客户，并二次确认
+[P27][dingdocnormal] 请至钉钉文档查看「白板」
+[P28][dingdocnormal] Click [Add] to add a new supplier.
+[P29][dingdocnormal] [Add Supplier] / [Edit Supplier] supports maintaining basic supplier information. Fields marked with [*] are mandatory. The supplier code must be unique. It also supports adding relevant information such as address, bank details, and credit code.
+[P30][dingdocnormal] Supports batch [Import] of supplier information. [Download Import Template] downloads the Excel template to your local device for editing. Note: Fields highlighted in red are mandatory in the table, and the supplier code must be unique.
+[P31][dingdocnormal] After editing the supplier information, click [Select File] to upload. Once the upload is successful, click [Confirm Import] to proceed with data import.
+[P32][dingdocnormal] [Edit] allows modification of supplier information; [Details] supports view-only access (non-editable); [Delete] removes the supplier after a secondary confirmation.
+[P33][Heading 3] 【PC】基础工序管理（1）
+[P34][dingdocnormal] 请至钉钉文档查看「白板」
+[P36][dingdocnormal] PS：配置工序可在生产订单中被【生产工序】引用，工序对应的工段将影响后续创建各类类任务可见工序范围
+[P37][dingdocnormal] 点击【新增】支持新增工序
+[P38][dingdocnormal] 新增、编辑【基础工序】支持维护客户工序信息，【*】为必填项，基础工序代码+工序名称不可重复
+[P39][dingdocnormal] 支持批量【导入】工序信息；【下载导入模版】将Excel格式下载至本地进行信息编辑，注意红字部分为表格必填信息
+[P40][dingdocnormal] 基础工序编辑完成，点击【选择文件】进行数据导入，上传成功，点击【确认导入】
+[P41][dingdocnormal] 【编辑】工序信息编辑；【复制】快速复制工序信息进行新增；【详情】支持查看不可编辑；【删除】删除工序信息，并二次确认
+[P42][dingdocnormal] 支持基于搜索结果【导出】列表数据
+[P43][dingdocnormal] 请至钉钉文档查看「白板」
+[P44][dingdocnormal] 待补英文
+[P45][Heading 3] 【PC】基础面料（1）
+[P46][dingdocnormal] 请至钉钉文档查看「白板」
+[P48][dingdocnormal] PS：基础面料导入支持导入颗粒度：料号+色号唯一，不存在进行新增，存在即将其与相关字段进行覆盖更新
+[P49][dingdocnormal] 点击【新增面料】支持新增面料
+[P50][dingdocnormal] 【新增面料】【编辑面料】支持维护面料基本信息，【*】为必填项，面料编号不可重复
+[P51][dingdocnormal] 面料支持添加不同颜色，点击【新增】新增一行颜色数据，点击【删除】删除颜色，并二次确认；颜色编码不可重复
+[P52][dingdocnormal] 支持批量【导入面料】面料信息；【下载导入模版】将Excel格式下载至本地进行信息编辑，注意红字部分为表格必填信息（支持料号、色号一致数据导入覆盖）；同面料不同颜色数据导入除【颜色编码】【颜色描述】不同其他保持一致（如牛仔布有2个颜色，需导入2行数据）
+[P53][dingdocnormal] 面料信息编辑完成，点击【选择文件】进行数据导入，上传成功，点击【确认导入】
+[P54][dingdocnormal] 【详情】支持查看不可编辑；【编辑】面料信息编辑；【删除】删除工序信息，并二次确认
+[P55][dingdocnormal] 请至钉钉文档查看「白板」
+[P56][dingdocnormal] 待补英文
+[P57][Heading 3] 【PC】基础辅料（1）
+[P58][dingdocnormal] 请至钉钉文档查看「白板」
+[P60][dingdocnormal] PS：基础辅料导入支持导入颗粒度：料号+色号+尺码唯一，不存在进行新增，存在即将其与相关字段进行覆盖更新
+[P61][dingdocnormal] 点击【新增辅料】支持新增辅料
+[P62][dingdocnormal] 【新增辅料】【编辑辅料】支持维护面料基本信息，【*】为必填项，辅料编号不可重复
+[P63][dingdocnormal] 辅料支持添加不同颜色、尺码、价格，点击【新增】新增一行对应辅料参数数据，点击【删除】删除颜色，并二次确认；颜色编码不可重复；尺码不可重复；价格自动基于，颜色&颜色*尺码生成行数据
+[P64][dingdocnormal] 支持批量【导入面料】面料信息；【下载导入模版】将Excel格式下载至本地进行信息编辑，注意红字部分为表格必填信息（支持料号、色号、尺码一致数据导入覆盖）；同面料不同颜色数据导入除【颜色编码】【颜色描述】不同其他保持一致（如牛仔布有2个颜色，需导入2行数据）
+[P65][dingdocnormal] 面料信息编辑完成，点击【选择文件】进行数据导入，上传成功，点击【确认导入】
+[P66][dingdocnormal] 【详情】支持查看不可编辑；【编辑】面料信息编辑；【删除】删除工序信息，并二次确认
+[P67][dingdocnormal] 请至钉钉文档查看「白板」
+[P68][dingdocnormal] 待补英文
+[P69][Heading 3] 【PC】款号管理（1）
+[P70][Heading 4] 物料需求
+[P71][dingdocnormal] 请至钉钉文档查看「白板」
+[P73][dingdocnormal] PS：没有【物料清单】生产订单就没法计算汇总的【物料信息】会影响领料、裁剪任务等；也影响从【销售订单】到【物料需求】到采购的相关物料汇总量计算
+[P74][dingdocnormal] 点击【基本信息】支持维护款号相关基础资料
+[P75][dingdocnormal] 点击【颜色尺码】支持维护款号对应的成衣颜色、尺码等信息
+[P76][dingdocnormal] 【物料需求】生成的【物料清单】支撑后续生产订单生成汇总【物料信息】（款号无信息将影响后续生产订单）
+[P77][dingdocnormal] 【物料用量】定义款号用到的面、辅料物料及单件用量
+[P78][dingdocnormal] 【色码用量】定义款号基于不同成衣颜色用到的面、辅料物料单件用量
+[P79][dingdocnormal] 【物料配色】定义款号基于不同成衣颜色用到的面、辅料物料不同色号（颜色）
+[P80][dingdocnormal] 【物料配码】定义款号基于不同成衣颜色用到的辅料物料不同尺码
+[P81][dingdocnormal] 【物料清单】会基于【物料需求】中上述维护信息自动生成不同成衣色号、尺码对应的单件面、辅料物料清单
+[P82][dingdocnormal] 请至钉钉文档查看「白板」
+[P83][dingdocnormal] 待补英文
+[P84][Heading 4] 其他
+[P85][dingdocnormal] 请至钉钉文档查看「白板」
+[P87][dingdocnormal] 点击【部位尺寸】维护部位量法等文本信息
+[P88][dingdocnormal] 点击【工艺要求】维护各类要求等文本信息，支持快速引用模版
+[P89][dingdocnormal] 点击【用线指示】维护用线相关物料文本信息
+[P90][dingdocnormal] 点击【部位管理】维护款号对应裁片等引用的部位信息
+[P91][dingdocnormal] 点击【生产工序】维护款号对应常规工序，支持【引用基础工序】
+[P92][dingdocnormal] 点击【操作日志】支持查看款号对应操作修改
+[P93][dingdocnormal] 请至钉钉文档查看「白板」
+[P94][dingdocnormal] 待补英文
+[P95][Heading 2] 销售1
+[P96][Heading 3] 【业务流程】
+[P97][dingdocnormal] 请至钉钉文档查看「流程图」
+[P99][dingdocnormal] PS：销售订单支持引用【款号管理】也支持从订单方向新增【款号】信息；销售订单生效后才会进入【订单预排期】列表，从预排期发布才会进入【订单排期表】
+[P100][Heading 3] 【PC】新增销售订单（1）
+[P101][dingdocnormal] 请至钉钉文档查看「白板」
+[P103][dingdocnormal] 点击【新增】支持新增销售订单
+[P104][dingdocnormal] 填写【订单编号】（支持自动生成）【订单类型】【客户】（仅支持选择）【客户联系人】【客户电话】【客户地址】，含【*】字段为必填项
+[P105][dingdocnormal] 【订单编号】支持自定义 / 自动生成；自动生成基于【团队】【产品】【国家订单】【年份尾数】等信息生成
+[P106][dingdocnormal] 销售订单列表 / 销售订单详情点击【导入】支持导入PO、FBD、CBD、TBD等excel格式件（导入模版格式调整请联系对应实施经理）
+[P107][dingdocnormal] 请至钉钉文档查看「白板」
+[P108][dingdocnormal] 待补英文
+[P109][Heading 3] 【PC】复制销售订单（1）
+[P110][dingdocnormal] 请至钉钉文档查看「白板」
+[P112][dingdocnormal] 销售订单列表点击【复制】支持复制对应订单
+[P113][dingdocnormal] 销售订单详情页点击【复制】支持复制当前订单
+[P114][dingdocnormal] 请至钉钉文档查看「白板」
+[P115][dingdocnormal] 待补英文
+[P116][Heading 3] 【PC】销售订单-基本资料（1）
+[P117][dingdocnormal] 请至钉钉文档查看「白板」
+[P119][dingdocnormal] 销售订单详情页-基本资料需维护【*】对应必填字段；【订单编号】支持点击【生成】基于条件生成有效编号
+[P120][dingdocnormal] 点击【删除】二次确认后可删除当前销售订单
+[P121][dingdocnormal] 点击【拆分】可打开 “订单拆分” 弹窗，基于【颜色尺码】中维护的尺码数量，维护【拆分数量】后完成订单拆分，拆分后列表自动生成状态为【草稿】的拆分订单
+[P122][dingdocnormal] 草稿状态，点击【生效】可确认销售订单，状态变更为【生效】；生效状态，点击【反生效】回到草稿状态
+[P123][dingdocnormal] 生效状态，点击【中止】表示终止已生效的订单，状态变更为【中止】；点击【反中止】，重新回到生效状态
+[P124][dingdocnormal] 生效状态，点击【变更】可修改订单的 “预计离港日期”“预计入客仓期”，点击【确认】变更生效
+[P125][dingdocnormal] 请至钉钉文档查看「白板」
+[P126][dingdocnormal] 待补英文
+[P127][Heading 3] 【PC】销售订单-款号（1）
+[P128][dingdocnormal] 请至钉钉文档查看「白板」
+[P130][dingdocnormal] 销售订单详情页-款号，需维护【*】对应必填字段；【款号】款号支持手动维护 / 选择已有款号
+[P131][dingdocnormal] 点击【同步款号档案】支持基于款号获取款号对应模版数据，覆盖款号信息
+[P132][dingdocnormal] 点击【删除款号】二次确认后可删除款号数据
+[P133][dingdocnormal] 点击【新增款号】支持多个款号信息维护
+[P134][dingdocnormal] 【复制款号】支持复制当前款号信息并新增一个款号进行维护
+[P135][dingdocnormal] 【重置款号】可快速清空当前款号信息
+[P136][dingdocnormal] 【保存款号】可保存当前款号信息，必填已填的情况下切换tab系统将自动保存款号信息
+[P137][dingdocnormal] 请至钉钉文档查看「白板」
+[P138][dingdocnormal] 待补英文
+[P139][Heading 3] 【PC】销售订单-颜色尺码（1）
+[P140][dingdocnormal] 请至钉钉文档查看「白板」
+[P142][dingdocnormal] 点击【新增颜色】进入弹窗编辑颜色
+[P143][dingdocnormal] 点击【添加】，将所选颜色加入【待新增】，点击【确认】最终添加
+[P144][dingdocnormal] 点击【新增尺码】进入弹窗编辑尺码；支持点击款号已维护尺码进行【添加】；也支持点击【新增】手动新增
+[P145][dingdocnormal] 吊牌条码支持手动维护，也支持【导入】；【下载导入模版】；维护模版内容（红字为必填）；【选择文件】进行导入
+[P146][dingdocnormal] 支持维护不同颜色、尺码对应的数量；这也是订单【拆分】的依据
+[P147][dingdocnormal] 生效状态，数量、吊牌条码支持【变更】，请注意更改将会影响后续流程，并通知相关人员
+[P148][dingdocnormal] 请至钉钉文档查看「白板」
+[P149][dingdocnormal] 待补英文
+[P150][Heading 3] 【PC】销售订单-附加服务（1）
+[P151][dingdocnormal] 请至钉钉文档查看「白板」
+[P153][dingdocnormal] 【附加服务】支持对不同色号进行水洗等相关服务信息维护
+[P154][dingdocnormal] 点击【附加服务重置】将重置附加服务数据，点击【附加服务保存】保存当前页数据
+[P155][dingdocnormal] 请至钉钉文档查看「白板」
+[P156][dingdocnormal] 待补英文
+[P157][Heading 3] 【PC】销售订单-装箱（1）
+[P158][dingdocnormal] 请至钉钉文档查看「白板」
+[P160][dingdocnormal] 订单-装箱，点击【维护】支持维护装箱单详情，点击【新增】出现维护信息
+[P161][dingdocnormal] 装箱单详情页带【*】为必填项
+[P162][dingdocnormal] 点击【装箱明细新增】支持人工维护箱信息等数据
+[P163][dingdocnormal] 点击【PO导入】支持导入标准PO模版（更新箱信息数据），模版对应【订单编号】【色号】编号需和订单保持一致
+[P164][dingdocnormal] 装箱信息【保存】后支持点击【编辑】进行【删除】操作
+[P165][dingdocnormal] 点击【箱码打印】，点击【生成箱码】支持快速生成箱码，也支持【作废箱码】，箱码生成后支持单箱码打印或多个箱码批量打印
+[P166][dingdocnormal] 支持【导入】箱码
+[P167][dingdocnormal] 请至钉钉文档查看「白板」
+[P168][dingdocnormal] 待补英文
+[P169][Heading 3] 【PC】销售订单-操作日志（1）
+[P170][dingdocnormal] 请至钉钉文档查看「白板」
+[P172][dingdocnormal] 点击【操作日志】支持查看销售订单变更操作
+[P173][dingdocnormal] 请至钉钉文档查看「白板」
+[P174][dingdocnormal] 待补英文
+[P175][Heading 3] 【PC】订单预排期（1）
+[P176][dingdocnormal] 请至钉钉文档查看「白板」
+[P178][dingdocnormal] 销售订单生效后数据进入【订单预排期】
+[P179][dingdocnormal] 支持手动编辑车间月份、预齐资料日期、客要求离场期
+[P180][dingdocnormal] 点击【排期设置】进入设置页，支持基于预齐资料日期、客要求离场期配置排期默认规则
+[P181][dingdocnormal] 点击【排期】【全部排期】支持快速生成车间月份、预齐资料日期、客要求离场期数据
+[P182][dingdocnormal] 点击【排期汇总】可快速查看汇总数据
+[P183][dingdocnormal] 点击【保存】【全部保存】支持快速保存车间月份、预齐资料日期、客要求离场期数据
+[P184][dingdocnormal] 点击【发布排期】支持基于年月（车间月份）、款式大类进行发布
+[P185][dingdocnormal] 请至钉钉文档查看「白板」
+[P186][dingdocnormal] 待补英文
+[P187][Heading 3] 【PC】订单排期表（1）
+[P188][dingdocnormal] 请至钉钉文档查看「白板」
+[P190][dingdocnormal] 预排期布后数据后进入【订单排期表】；点击【删除】支持二次确认后删除排期
+[P191][dingdocnormal] 点击【详情】支持查看排期明细、版本记录
+[P192][dingdocnormal] 点击【排期明细】支持查看排期明细列表
+[P193][dingdocnormal] 点击【版本记录】支持查看版本记录明细列表
+[P194][dingdocnormal] 请至钉钉文档查看「白板」
+[P195][dingdocnormal] 待补英文
+[P196][Heading 2] 采购1
+[P197][Heading 3] 【业务流程】面料采购
+[P198][dingdocnormal] 请至钉钉文档查看「流程图」
+[P201][dingdocnormal] PS：需求色生成依赖于【销售订单】对应【款号】对应【物料需求-物料清单】
+[P202][Heading 3] 【PC】物料需求（1）
+[P203][dingdocnormal] 请至钉钉文档查看「白板」
+[P205][dingdocnormal] 支持基于订单号、状态快速筛选销售订单
+[P206][dingdocnormal] 点击【销售订单】，点击【需求汇总】查看对应面料/辅料需求汇总
+[P207][dingdocnormal] 点击【明细】支持查看对应面料/辅料需求明细
+[P208][dingdocnormal] 点击【创建需求】批量选择对应面料/辅料；点击【确认】查生成需求单
+[P209][dingdocnormal] 创建需求页面，点击【明细】支持查看对应面料/辅料需求明细
+[P210][dingdocnormal] 请至钉钉文档查看「白板」
+[P211][dingdocnormal] 待补英文
+[P212][dingdocnormal] 请至钉钉文档查看「白板」
+[P214][dingdocnormal] 支持基于订单号、状态快速筛选销售订单
+[P215][dingdocnormal] 点击【需求单管理】查看对应销售订单创建的需求单
+[P216][dingdocnormal] 点击【明细】支持查看对应面料/辅料需求明细；支持快速勾选【颜色】【尺码】进行列表展示筛选
+[P217][dingdocnormal] 点击【提交审核】提交至需求审核流程；“审核中”支持【撤回送审】
+[P218][dingdocnormal] 需求单审核通过，采购订单未生成支持【反审核】进行二次编辑再提交
+[P219][dingdocnormal] 点击【导出】【打印】支持下载、打印对应面料/辅料需求明细表
+[P220][dingdocnormal] 点击【删除】支持删除对应需求单（仅需求单草稿状态）
+[P221][dingdocnormal] 请至钉钉文档查看「白板」
+[P222][dingdocnormal] 待补英文
+[P223][Heading 3] 【PC】物料需求审核（1）
+[P224][dingdocnormal] 请至钉钉文档查看「白板」
+[P226][dingdocnormal] 勾选对应【需求单】
+[P227][dingdocnormal] 进行批量【审核通过】【批量驳回】的操作
+[P228][dingdocnormal] 请至钉钉文档查看「白板」
+[P229][dingdocnormal] 待补英文
+[P230][Heading 3] 【PC】面料采购计划（1）
+[P231][dingdocnormal] 请至钉钉文档查看「白板」
+[P233][dingdocnormal] 勾选对应面料，点击【生成采购订单】生成面料对应采购订单（草稿状态）；点击【完成】对应面料不再显示在列表
+[P234][dingdocnormal] 勾选对应面料，可快速选择【选中相同供应商】【选中相同物料】进行快速勾选面料信息
+[P235][dingdocnormal] 面料采购订单详情页支持编辑基本信息；支持对面料进行【分批】维护数量、预计到货日期等信息
+[P236][dingdocnormal] 点击【删除】二次确认后删除行数据
+[P237][dingdocnormal] 点击【保存】进入查看状态；点击【编辑】进入编辑状态
+[P238][dingdocnormal] 查看状态下支持【导出】【打印】对应模版
+[P239][dingdocnormal] 点击【生效】采购订单状态从【草稿】变【生效】
+[P240][dingdocnormal] 请至钉钉文档查看「白板」
+[P241][dingdocnormal] 待补英文
+[P242][Heading 3] 【PC】面料采购订单（1）
+[P243][dingdocnormal] 请至钉钉文档查看「白板」
+[P245][dingdocnormal] 点击【计划新增】同【面料采购计划】生成对应采购订单
+[P246][dingdocnormal] 草稿状态采购订单【编辑】支持编辑基本信息；支持对面料维护数量、预计到货日期等信息；点击【生效】支持状态变更为生效
+[P247][dingdocnormal] 点击【编辑】支持删除草稿状态采购订单
+[P248][dingdocnormal] 生效状态采购订单支持变更支持编辑部分基本信息；支持对面料维护数量、预计到货日期等信息【保存】进入查看状态；点击【确认到货】更新收货状态，面料通知单将无法创建（如走后续仓库管理请勿操作）
+[P249][dingdocnormal] 点击【手动新增】直接新增面料对应采购订单
+[P250][dingdocnormal] 单选/多选面料，点击【确认】生成对应采购订单（草稿）
+[P251][dingdocnormal] 请至钉钉文档查看「白板」
+[P252][dingdocnormal] 待补英文
+[P253][Heading 3] 【PC】面料收货通知（1）
+[P254][dingdocnormal] 请至钉钉文档查看「白板」
+[P256][dingdocnormal] 点击【新增采购收货单】进入选择采购订单
+[P257][dingdocnormal] 单选【采购订单】点击【确认】进入面料收货通知详情
+[P258][dingdocnormal] 点击【新增收货明细】支持新增明细
+[P259][dingdocnormal] 收货明细支持导入，点击【上传】支持导入excel格式件（导入模版格式调整请联系对应实施经理）；点击【导入】支持基于模版进行明细导入
+[P260][dingdocnormal] 多选对应【物料编号】点击【确认】生成对应一级收货明细
+[P261][dingdocnormal] 点击一级明细对应【明细录入】编辑对应二级明细；点击【新增】支持编辑对应二级明细（缸号&卷号维度）
+[P262][dingdocnormal] 录入【缸号】【本缸应收卷数】【本缸应收数量】点击【按缸录入】编辑卷号信息
+[P263][dingdocnormal] 支持手动录入【卷号】支持在有数据的卷号，右侧双击自动填充卷号
+[P264][dingdocnormal] 点击【新增】增加卷号行信息，点击【删除】删除卷号行信息
+[P265][dingdocnormal] 请至钉钉文档查看「白板」
+[P266][dingdocnormal] 待补英文
+[P267][Heading 3] 【PC】面料其他收货通知单（1）
+[P268][dingdocnormal] 请至钉钉文档查看「白板」
+[P270][dingdocnormal] 点击【新增其他收货单】进入面料其他收货通知单详情页；点击【新增收货明细】多选面料；点击【确认】面料进入收货明细
+[P271][dingdocnormal] 点击【保存】进入查看状态；点击【生效】收货通知单生效
+[P272][dingdocnormal] 点击【关联生产单】多择生产订单、销售订单进行关联；点击【确认】关联生效
+[P273][dingdocnormal] 生效后的收货通知单支持【同步】【完成】【作废】【打印】的相关操作
+[P274][dingdocnormal] 请至钉钉文档查看「白板」
+[P275][dingdocnormal] 待补英文
+[P276][Heading 3] 【PDA】面料收货（1）
+[P277][dingdocnormal] 请至钉钉文档查看「白板」
+[P279][dingdocnormal] 面料仓库点击【物料收货】进入扫码收货页面
+[P280][dingdocnormal] 扫描【卷码】或输入【卷码】获取物料信息，点击【确认收货】进行收货
+[P281][dingdocnormal] 点击【快速添加】点击【自定义条件】维护筛选条件点【查询】查看结果；勾选面料，点击【确认添加】进行收货
+[P282][dingdocnormal] 点击【确认收货】击确认数量，选择作业区（作业区选填），点击【确定】完成收货
+[P283][dingdocnormal] 面料仓库点击【载具收货】进入载具收货页面
+[P284][dingdocnormal] 扫描【载具码】或输入【载具码】获取载具信息，点击【确认】显示载具信息
+[P285][dingdocnormal] 扫描【卷码】或输入【卷码】获取物料信息
+[P286][dingdocnormal] 点击【确认收货】击确认数量，选择作业区（作业区选填），点击【确定】完成收货
+[P287][dingdocnormal] 请至钉钉文档查看「白板」
+[P288][dingdocnormal] 待补英文
+[P289][Heading 3] 【PC】面料退货通知（1）
+[P290][dingdocnormal] 请至钉钉文档查看「白板」
+[P292][dingdocnormal] 点击【新增退货通知单】进入面料收货通知单选择页（收货单需完成 & 已收货）；点击【确认】生成面料退货通知单
+[P293][dingdocnormal] 点击【新增退货明细】支持多选收货通知单对应面料；点击【确认】生成退货一级明细
+[P294][dingdocnormal] 点击【明细选择】支持多选二级明细（缸号 & 卷号）
+[P295][dingdocnormal] 整单对应布料退货可选择【全部退货】；点击【确认】生成退货二级明细
+[P296][dingdocnormal] 点击【生效】退货通知单生效
+[P297][dingdocnormal] 退货后的退货通知单支持【同步】【完成】【打印】相关操作
+[P298][dingdocnormal] 请至钉钉文档查看「白板」
+[P299][dingdocnormal] 待补英文
+[P300][Heading 3] 【PC】面料期初收货通知单（1）
+[P301][dingdocnormal] 请至钉钉文档查看「白板」
+[P303][dingdocnormal] 点击【导入】下载模版；编辑对应内容，上传文件完成历史数据维护
+[P304][dingdocnormal] 请至钉钉文档查看「白板」
+[P305][dingdocnormal] 待补英文
+[P306][Heading 3] 【业务流程】辅料采购
+[P307][dingdocnormal] 请至钉钉文档查看「流程图」
+[P309][Heading 3] 【PC】辅料采购计划（1）
+[P310][dingdocnormal] 请至钉钉文档查看「白板」
+[P312][dingdocnormal] 勾选对应辅料，点击【生成采购订单】生成辅料对应采购订单（草稿状态）；点击【完成】对应辅料不再显示在列表
+[P313][dingdocnormal] 勾选对应辅料，可快速选择【选中相同供应商】【选中相同物料】进行快速勾选辅料信息
+[P314][dingdocnormal] 辅料采购订单详情页支持编辑基本信息；支持对面料进行【分批】维护数量、预计到货日期等信息
+[P315][dingdocnormal] 点击【删除】二次确认后删除行数据
+[P316][dingdocnormal] 点击【保存】进入查看状态；点击【编辑】进入编辑状态
+[P317][dingdocnormal] 查看状态下支持【导出】【打印】对应模版
+[P318][dingdocnormal] 点击【生效】采购订单状态从【草稿】变【生效】
+[P319][dingdocnormal] 请至钉钉文档查看「白板」
+[P320][dingdocnormal] 待补英文
+[P321][Heading 3] 【PC】辅料采购订单（1）
+[P322][dingdocnormal] 请至钉钉文档查看「白板」
+[P324][dingdocnormal] 点击【计划新增】同【辅料采购计划】生成对应采购订单
+[P325][dingdocnormal] 草稿状态采购订单【编辑】支持编辑基本信息；支持对辅料维护数量、预计到货日期等信息；点击【生效】支持状态变更为生效
+[P326][dingdocnormal] 点击【编辑】支持删除草稿状态采购订单
+[P327][dingdocnormal] 生效状态采购订单支持变更支持编辑部分基本信息；支持对辅料维护数量、预计到货日期等信息【保存】进入查看状态；点击【确认到货】更新收货状态
+[P328][dingdocnormal] 点击【手动新增】直接新增辅料对应采购订单
+[P329][dingdocnormal] 单选/多选面料，点击【确认】生成对应采购订单（草稿）
+[P330][dingdocnormal] 请至钉钉文档查看「白板」
+[P331][dingdocnormal] 待补英文
+[P332][Heading 3] 【PC】辅料收货通知（1）
+[P333][Heading 4] 先录后贴（1）
+[P334][dingdocnormal] （客户已有箱量、单箱数据且有箱码，到仓打印&扫码入库）——案例：荆门
+[P335][dingdocnormal] 请至钉钉文档查看「白板」
+[P337][dingdocnormal] 点击【新增】-【先录后贴】进入选择采购订单
+[P338][dingdocnormal] 单选【采购订单】点击【确认】进入辅料收货通知详情
+[P339][dingdocnormal] 收货明细支持导入，点击【上传】支持导入excel格式件（导入模版格式调整请联系对应实施经理）；点击【导入】支持基于模版进行明细导入
+[P340][dingdocnormal] 点击【新增收货明细】支持多选对应【物料编号】（辅料）点击【确认】生成收货明细
+[P341][dingdocnormal] 点击【按箱录入】支持录入箱号，点击【下一步】进入【4】选择对应【物料编号】生成收货明细
+[P342][dingdocnormal] 完成必填：箱装数量、箱数、应收数量，点击【保存】进入查看态点击【生效】收货通知单生效，【箱码明细】自动生成
+[P343][dingdocnormal] 生效的通知单支持【完成】【作废】【打印】的相关操作
+[P344][dingdocnormal] 请至钉钉文档查看「白板」
+[P345][dingdocnormal] 待补英文
+[P346][Heading 4] 无箱贴（1）
+[P347][dingdocnormal] PS：（客户已有箱量、单箱数据无箱码，到仓选收货通知单，扫载具&定义物料数量）——案例：新基
+[P348][dingdocnormal] 请至钉钉文档查看「白板」
+[P350][dingdocnormal] 点击【新增】-【无箱贴】进入选择采购订单
+[P351][dingdocnormal] 单选【采购订单】点击【确认】进入辅料收货通知详情
+[P352][dingdocnormal] 收货明细支持导入，点击【上传】支持导入excel格式件（导入模版格式调整请联系对应实施经理）
+[P353][dingdocnormal] 点击【新增收货明细】支持多选对应【物料编号】（辅料）点击【确认】生成收货明细
+[P354][dingdocnormal] 完成必填：应收数量，点击【保存】进入查看态
+[P355][dingdocnormal] 点击【生效】收货通知单生效；生效的通知单支持【同步】【完成】【作废】【打印】的相关操作
+[P356][dingdocnormal] 点击【新增】进入辅料收货单明细，支持点击【新增收货明细】支持多选对应【物料编号】（辅料）点击【确认】生成收货明细
+[P357][dingdocnormal] 点击【查看明细】支持查看仓库收货状态、箱号、载具号实收数量等明细
+[P358][dingdocnormal] 请至钉钉文档查看「白板」
+[P359][dingdocnormal] 待补英文
+[P360][Heading 4] 先贴后录（0-PDA没走通）
+[P361][dingdocnormal] PS：（已有待收总量，到仓库PC录入箱数出系统箱码，扫箱码&扫载具&定义物料数量）——暂无客户用
+[P362][dingdocnormal] 请至钉钉文档查看「白板」
+[P363][dingdocnormal] 点击【先贴后录】进入选择采购订单
+[P364][dingdocnormal] 单选【采购订单】点击【确认】进入辅料收货通知详情
+[P365][dingdocnormal] 收货明细支持导入，点击【上传】支持导入excel格式件（导入模版格式调整请联系对应实施经理）
+[P366][dingdocnormal] 点击【新增收货明细】支持多选对应【物料编号】（辅料）点击【确认】生成收货明细
+[P367][dingdocnormal] 完成必填：应收数量，点击【保存】进入查看态
+[P368][dingdocnormal] 点击【生效】收货通知单生效；生效的通知单支持【同步】【完成】【作废】【打印】的相关操作
+[P369][dingdocnormal] 点击【新增】进入辅料收货单明细，支持点击【新增收货明细】支持多选对应【物料编号】（辅料）点击【确认】生成收货明细
+[P370][dingdocnormal] 点击【查看明细】支持查看仓库收货状态、箱号、载具号实收数量等明细
+[P371][dingdocnormal] 点击【箱码明细】-【新增】-【新增箱】维护辅料类别、箱数，点击【确认】自动生成【箱码明细】
+[P372][dingdocnormal] 请至钉钉文档查看「白板」
+[P373][dingdocnormal] 待补英文
+[P374][Heading 3] 【PDA】辅料收货（1）
+[P375][dingdocnormal] 辅料收货，当前仅支持【先录后贴】【无箱贴】，PDA【按箱收货】针对【先录后贴】；【无箱贴收货】针对【无箱贴】
+[P376][Heading 4] 按箱收货（1）
+[P377][dingdocnormal] 请至钉钉文档查看「白板」
+[P379][dingdocnormal] 辅料仓库点击【按箱收货】进入操作页面
+[P380][dingdocnormal] 扫描【箱码】或输入【箱码】获取货物信息
+[P381][dingdocnormal] 录入【实收数量】点击【确认收货】进入作业区确认
+[P382][dingdocnormal] 选择【作业区】点击【确定】完成收货（非必填）
+[P383][dingdocnormal] 请至钉钉文档查看「白板」
+[P384][dingdocnormal] 待补英文
+[P385][Heading 4] 无箱贴收货（1）
+[P386][dingdocnormal] 请至钉钉文档查看「白板」
+[P388][dingdocnormal] 辅料仓库点击【无箱贴收货】进入列表页面（显示收货通知单）
+[P389][dingdocnormal] 点击【收获通知单】进入操作页
+[P390][dingdocnormal] 扫描【载具码】或输入【载具码】获取载具信息
+[P391][dingdocnormal] 点击【快速添加】
+[P392][dingdocnormal] 勾择物料明细，点击【确认添加】
+[P393][dingdocnormal] 录入物料明细对应【数量】点击【确认收获】
+[P394][dingdocnormal] 选择【作业区】点击【确定】完成收货（非必填）
+[P395][dingdocnormal] 请至钉钉文档查看「白板」
+[P396][dingdocnormal] 待补英文
+[P397][Heading 4] 物料收货（1）
+[P398][dingdocnormal] 请至钉钉文档查看「白板」
+[P400][dingdocnormal] 辅料料仓库点击【物料收货】进入扫码收货页面
+[P401][dingdocnormal] 扫描【箱码】或输入【箱码】获取货物信息，点击【确认收货】进行收货
+[P402][dingdocnormal] 点击【快速添加】点击【自定义条件】维护筛选条件点【查询】查看结果；勾选/全选物料，点击【确认添加】进行收货
+[P403][dingdocnormal] 点击【确认收货】击确认数量，选择作业区，点击【确定】完成收货
+[P404][dingdocnormal] 请至钉钉文档查看「白板」
+[P405][dingdocnormal] 待补英文
+[P406][Heading 3] 【PC】辅料退货通知（1）
+[P407][dingdocnormal] 请至钉钉文档查看「白板」
+[P409][dingdocnormal] 点击【新增退货通知单】进入辅料收货通知单选择页（收货单需完成 & 已收货）；点击【确认】生成辅料退货通知单
+[P410][dingdocnormal] 点击【新增退货明细】支持多选收货通知单对应辅料
+[P411][dingdocnormal] 退货明细点击【删除】二次确认后删除
+[P412][dingdocnormal] 点击【生效】退货通知单生效
+[P413][dingdocnormal] 退货后的退货通知单支持【同步】【完成】【打印】相关操作
+[P414][dingdocnormal] 请至钉钉文档查看「白板」
+[P415][dingdocnormal] 待补英文
+[P416][Heading 2] 质检（标准版）
+[P417][dingdocnormal] 《IMS 3.0操作手册2》
+[P418][Heading 3] 【业务流程】面料
+[P419][dingdocnormal] 请至钉钉文档查看「流程图」
+[P421][dingdocnormal] PS：面料质检创建前提：面料已收货、收货通知单已完成
+[P422][dingdocnormal] 分配组别可选到前提：
+[P423][dingdocnormal] 入口：组织架构-部门管理-编辑
+[P424][dingdocnormal] 要求：部门类型=组别；工段=裁剪前准备工段
+[P425][Heading 3] 【PC】面料质检（1）
+[P426][dingdocnormal] 请至钉钉文档查看「白板」
+[P428][dingdocnormal] 选择状态=草稿的检验单，点击【检验单号】进入面料检验详情
+[P429][dingdocnormal] 点击【编辑】进入编辑态
+[P430][dingdocnormal] 选择【分配组别】填写【检验比例(%)】点击【保存】
+[P431][dingdocnormal] 点击【生效】检验单生效，生成PAD面料入库检验任务
+[P432][dingdocnormal] 请至钉钉文档查看「白板」
+[P433][dingdocnormal] 待补英文
+[P434][Heading 3] 【PAD】面料入库检验（1）
+[P435][dingdocnormal] 请至钉钉文档查看「白板」
+[P437][dingdocnormal] 选择【质检】点击【面料入库检验】进入面料入库检验列表
+[P438][dingdocnormal] 点击检验任务状态，填写筛选条件，点击【查询】过滤面料入库检验列表数据
+[P439][dingdocnormal] 点击【卡片】进入面料入库检验详情进行抽检布料选择
+[P440][dingdocnormal] 选择面料色号对应【卡片】
+[P441][dingdocnormal] 点击【布卷】进入面料检验
+[P442][dingdocnormal] 填入【布头幅宽】【中间幅宽】【布尾幅宽】，点击【疵点】进行扣分
+[P443][dingdocnormal] 点击【检验完成】当前布卷完成检验
+[P444][dingdocnormal] 点击【检验完成】当前面料检验任务完成检验
+[P445][dingdocnormal] 请至钉钉文档查看「白板」
+[P446][dingdocnormal] 待补英文
+[P447][Heading 3] 【PC】面料质检明细/确认结果（1）
+[P449][dingdocnormal] 请至钉钉文档查看「白板」
+[P451][dingdocnormal] 点击【继续检验】重新生成面料入库检验任务
+[P452][dingdocnormal] 点击【确认检验结果】基于面料入库检验任务整单确认结果，可选择【合格】【不合格】
+[P453][dingdocnormal] 点击【已检明细】【查看明细】进入面料检验明细，支持查看PAD端执行检验结果
+[P454][dingdocnormal] 选择【录入检验结果】支持对每批布进行检验结果确认，可选择【合格】【勉强使用】【不合格】
+[P455][dingdocnormal] 请至钉钉文档查看「白板」
+[P456][dingdocnormal] 待补英文
+[P457][Heading 3] 【业务流程】辅料
+[P458][dingdocnormal] 请至钉钉文档查看「流程图」
+[P460][dingdocnormal] PS：辅料质检创建前提：辅料已收货、收货通知单已完成
+[P461][Heading 3] 【PC】辅料质检（1）
+[P462][dingdocnormal] 请至钉钉文档查看「白板」
+[P464][dingdocnormal] 选择状态=草稿的检验单，点击【检验单号】进入辅料检验详情
+[P465][dingdocnormal] 点击【编辑】进入编辑态
+[P466][dingdocnormal] 选择【分配组别】填写【检验比例(%)】点击【保存】
+[P467][dingdocnormal] 点击【生效】检验单生效，生成PAD辅料入库检验任务
+[P468][dingdocnormal] 请至钉钉文档查看「白板」
+[P469][dingdocnormal] 待补英文
+[P470][Heading 3] 【PAD】辅料入库检验（1）
+[P471][dingdocnormal] 请至钉钉文档查看「白板」
+[P473][dingdocnormal] 选择【质检】点击【辅料入库检验】进入辅料入库检验列表
+[P474][dingdocnormal] 点击检验任务状态，填写筛选条件，点击【查询】过滤辅料入库检验列表数据
+[P475][dingdocnormal] 点击【卡片】进入辅料入库检验详情进行抽检辅料选择
+[P476][dingdocnormal] 选择辅料色号、尺码进行检验
+[P477][dingdocnormal] 点击对应箱【卡片】进入辅料检验
+[P478][dingdocnormal] 填入【检验数量】，点击【疵点】进行扣分
+[P479][dingdocnormal] 点击【检验完成】当前辅料箱完成检验
+[P480][dingdocnormal] 点击【检验完成】当前辅料检验任务完成检验
+[P481][dingdocnormal] 请至钉钉文档查看「白板」
+[P482][dingdocnormal] 待补英文
+[P483][Heading 3] 【PC】辅料质检明细/确认结果
+[P484][dingdocnormal] 请至钉钉文档查看「白板」
+[P486][dingdocnormal] 点击【继续检验】重新生成辅料入库检验任务
+[P487][dingdocnormal] 点击【确认检验结果】基于辅料入库检验任务整单确认结果，可选择【合格】【不合格】
+[P488][dingdocnormal] 点击【已检明细】【查看明细】进入辅料检验明细，支持查看PAD端执行检验结果
+[P489][dingdocnormal] 请至钉钉文档查看「白板」
+[P490][dingdocnormal] 待补英文
+[P491][Heading 2] 【面料仓库】0
+[P492][Heading 2] 【辅料仓库】0
+[P493][Heading 2] 【裁片仓库】0
+[P494][Heading 2] 【成品仓库】0
+[P495][Heading 3] 【业务流程】（1）
+[P496][dingdocnormal] 请至钉钉文档查看「流程图」
+[P498][Heading 3] 成品收货通知单（0）
+[P499][Heading 3] 成品物料清单（0）
+[P500][Heading 3] 成品入库单（0）
+[P501][Heading 3] 成品出库单（0）
+[P502][Heading 3] 成品出库通知单（0）
+[P503][Heading 3] 成品出入库流水（0）
+[P504][Heading 3] 成品库存管理（0）
+[P505][Heading 3] 成品箱库存管理（0）
+[P507][Heading 2] 订单1
+[P508][Heading 3] 生产订单（1）
+[P509][dingdocnormal] 新增生产订单
+[P510][dingdocnormal] 请至钉钉文档查看「白板」
+[P512][dingdocnormal] 点击【销售新增】从销售订单创建生产订单
+[P513][dingdocnormal] 单择【销售订单】点击【确认】创建生产订单，默认带入销售订单业务信息
+[P514][dingdocnormal] 点击【新增】手动创建生产订单
+[P515][dingdocnormal] 填写标准信息，点击【确认】创建生产订单
+[P516][dingdocnormal] 从【销售订单】创建，灰底信息不支持修改，从【新增】直接创建支持修改；注意【款式名称】会被裁剪任务扎卡打印引用（没有会导致无法选择裁片类型，无法生成扎卡）
+[P517][dingdocnormal] 不同订单状态，支持【提交审核】【反审核】【生效】【反生效】【发布】【反发布】【完成】，支持快速【发起领料】【生成办单】
+[P518][dingdocnormal] 请至钉钉文档查看「白板」
+[P519][dingdocnormal] 待补英文
+[P520][dingdocnormal] 生产订单详情
+[P521][dingdocnormal] 请至钉钉文档查看「白板」
+[P523][dingdocnormal] 维护生产订单基本信息，支持上传附件信息（需技术做解析配置）
+[P524][dingdocnormal] 【颜色尺码】同步销售订单信息，或手动创建填入相关信息
+[P525][dingdocnormal] 【部位尺寸】支持维护量法公差等信息
+[P526][dingdocnormal] 【工艺要求】支持维护面料、部位文本备注信息
+[P527][dingdocnormal] 【生产工序】支持引用基础工序，后续各类任务会引用到对应工段的工序（没有会导致任务无工序可引用）
+[P528][dingdocnormal] 【物料信息】引用【款号管理-物料需求-物料清单】进行订单物料信息计算（没有物料清单会导致无法计算）
+[P529][dingdocnormal] 【配料说明】支持维护物料、供应商相关备注信息
+[P530][dingdocnormal] 【吊牌管理】支持维护色号、尺码对应的吊牌编号；支持维护SKU价格
+[P531][dingdocnormal] 【唛架管理】支持维护裁剪需要的基础信息，【配比】会被裁剪任务计算引用到
+[P532][dingdocnormal] 请至钉钉文档查看「白板」
+[P533][dingdocnormal] 待补英文
+[P534][Heading 3] 生产订单审核（1）
+[P535][dingdocnormal] 请至钉钉文档查看「白板」
+[P537][dingdocnormal] 订单提交审核后，支持在【生产订单审核】列表查看
+[P538][dingdocnormal] 进入详情页，支持查看订单详情，执行【通过】【驳回】【反审核】
+[P539][dingdocnormal] 请至钉钉文档查看「白板」
+[P540][dingdocnormal] 待补英文
+[P541][Heading 2] 生产领料0/1
+[P542][Heading 3] 面料领料申请单（1）
+[P543][dingdocnormal] 请至钉钉文档查看「白板」
+[P544][dingdocnormal] 【方法一】支持从面料领料申请单列表点击【新增面料领料单】单选【生产订单号】（已发布）点击【确认】发起领料单创建
+[P545][dingdocnormal] 【方法二】支持从已发布的裁剪任务点击【发起领料单】创建面料领料单
+[P546][dingdocnormal] 【方法三】支持从已发布生产订单详情点击【发起领料】创建面料领料单
+[P547][dingdocnormal] 面料领料申请单详情页点击【新增领料明细】选择生产订单对应物料汇总物料（生产订单对应【款号管理-物料需求-物料清单】无数据将导致此处无可选数据）
+[P548][dingdocnormal] 点击【确认】创建领料明细
+[P549][dingdocnormal] 请至钉钉文档查看「白板」
+[P550][dingdocnormal] 待补英文
+[P551][Heading 3] 辅料领料申请单（0）
+[P552][Heading 3] 裁片领料申请单（0）
+[P554][Heading 2] 松布任务1
+[P555][Heading 3] 【业务流程】
+[P556][dingdocnormal] 请至钉钉文档查看「流程图」
+[P558][dingdocnormal] PS：
+[P559][dingdocnormal] 【生产订单】审核完成，发布后才能【面料领料申请】
+[P560][dingdocnormal] 生产订单的【物料清单】会影响【面料领料申请单】可申请物料；注意【款号】需要是生效的，要不也会影响清单同步；
+[P561][dingdocnormal] 【面料领料申请单】松布作业=是，申请单状态=生效，才会自动创建松布任务
+[P562][dingdocnormal] PC端的【批量松布任务】需要【面料领料申请单】状态=完成，才能操作
+[P563][Heading 3] 【PDA】按单出库（1）
+[P564][dingdocnormal] 请至钉钉文档查看「白板」
+[P566][dingdocnormal] 方案一：选择【按单出库】
+[P567][dingdocnormal] 点击对应【面料领料单号】（生效）
+[P568][dingdocnormal] 点击对应【物料色号/色称】进入物料扫描操作
+[P569][dingdocnormal] 扫描【载具码】【物料条码】点击【确认出库】面料领料出库
+[P570][dingdocnormal] 选择【出库目的地】点击【确定】出库完成
+[P571][dingdocnormal] 方案二：选择【出库确认】
+[P572][dingdocnormal] 扫描【载具码】【物料条码】点击【确认出库】完成面料领料出库
+[P573][dingdocnormal] 请至钉钉文档查看「白板」
+[P574][dingdocnormal] 待补英文
+[P575][Heading 3] 【PC】编辑松布任务/批量松布（1）
+[P576][dingdocnormal] 请至钉钉文档查看「白板」
+[P578][dingdocnormal] 【面料领料申请单】选择生效且松布作业=是，自动创建松布任务，点击【松布任务单号】是查看松布任务详情
+[P579][dingdocnormal] 点击松布任务列表【编辑】或点击详情页【编辑】进入编辑状态
+[P580][dingdocnormal] 编辑状态下，且【面料领料申请单】状态=完成，支持在PC端进行【批量松布】
+[P581][dingdocnormal] 请至钉钉文档查看「白板」
+[P582][dingdocnormal] 待补英文
+[P583][Heading 3] 【PAD】松布任务（1）
+[P584][dingdocnormal] 请至钉钉文档查看「白板」
+[P586][dingdocnormal] 点击【松布任务】卡片，进入松布任务详情页
+[P587][dingdocnormal] 扫描【布卷码】或录入【布卷码】点击【确认】进入布卷信息确认弹窗
+[P588][dingdocnormal] 录入【实际米长】【幅宽】信息点击【确认】完成当前布卷松布
+[P589][dingdocnormal] 选择对应【面料&色号】卡片，支持查看对应已松布的布卷
+[P590][dingdocnormal] 点击【手动新增】支持新增空的松布任务
+[P591][dingdocnormal] 扫描【布卷码】或录入【布卷码】点击【确认】进入布卷信息页
+[P592][dingdocnormal] 点击【松布完成】，当前松布任务完成
+[P593][dingdocnormal] 请至钉钉文档查看「白板」
+[P594][dingdocnormal] 待补英文
+[P595][Heading 2] 裁剪任务1
+[P596][Heading 3] 【业务流程】
+[P597][dingdocnormal] 请至钉钉文档查看「流程图」
+[P599][dingdocnormal] PS：
+[P600][dingdocnormal] 【生产订单】审核完成，发布后才能【创建裁剪任务】
+[P601][dingdocnormal] 【生产订单】基础资料需录入【款式名称】，裁剪的【裁片类型】的数据字典，依赖于【款式名称】，没有将无可选裁片
+[P602][dingdocnormal] 【生产订单-唛架管理】需要维护，会影响裁剪任务裁床的尺码配比
+[P603][dingdocnormal] 【生产订单-生产工序】需要维护裁剪工段对应工序，会影响报工可选工序范围
+[P604][Heading 3] 【PC】创建裁剪任务（1）
+[P605][dingdocnormal] 请至钉钉文档查看「白板」
+[P607][dingdocnormal] 点击【新增裁剪任务】进入任务新增页
+[P608][dingdocnormal] 支持基于【成衣色称】或【成衣尺码】，【生产订单】或【缝制任务单】筛选SKU，勾选对应成衣及数量进行任务编排
+[P609][dingdocnormal] 点击【选择唛架】选择生产订单或缝制任务单对应唛架
+[P610][dingdocnormal] 定义床次【计划层数】或录入统一【计划层数】点击【自动分床】创建床次；录入【床次】编号，点击输入框右下角支持批量更新床次编号
+[P611][dingdocnormal] 选择【生产组别】或批量分配组别；录入每个床次的【计划床次日期】
+[P612][dingdocnormal] 点击【发布】完成裁剪任务发布，点击【保存】进行草稿保存
+[P613][dingdocnormal] 请至钉钉文档查看「白板」
+[P614][dingdocnormal] 待补英文
+[P615][Heading 3] 【PAD】拉布任务（1）
+[P616][dingdocnormal] 请至钉钉文档查看「白板」
+[P619][dingdocnormal] 点击【拉布任务】卡片进入任务详情，支持基于状态、款号、床次、组别等筛选任务数据
+[P620][dingdocnormal] 扫描【布卷码】或录入【布卷码】点击【确认】进入拉布信息弹窗；录入实际层数、实际段长等信息点击【确认】
+[P621][dingdocnormal] 任务详情显示对应布卷拉布信息，点击【拉布完成】完成对应拉布任务，PC支持答应对应床次扎卡
+[P622][dingdocnormal] 请至钉钉文档查看「白板」
+[P623][dingdocnormal] 待补英文
+[P624][Heading 3] 【PC】裁剪任务-扎卡打印（1）
+[P625][dingdocnormal] 请至钉钉文档查看「白板」
+[P627][dingdocnormal] 完成拉布任务的床次，点击【扎卡打印】进入扎卡打印页面
+[P628][dingdocnormal] 点击【添加裁片类型】多选对应裁片类型，点击【保存】
+[P629][dingdocnormal] 支持基于配置顺序生成扎卡，支持【按裁片类型】或【按扎号顺序】；按【横向打印】或【纵向打印】两两组合
+[P630][dingdocnormal] 点击【扎卡生成】生成扎卡；切换配置支持【扎卡作废】
+[P631][dingdocnormal] 点击【切换至手动模式】支持切换到自动模式；点击【自定义件数】定义扎卡件数、合扎动作等
+[P632][dingdocnormal] 点击【扎卡打印】生成扎卡
+[P633][dingdocnormal] 请至钉钉文档查看「白板」
+[P634][dingdocnormal] 待补英文
+[P635][Heading 3] 【PAD】验片任务（1）
+[P636][dingdocnormal] 请至钉钉文档查看「白板」
+[P639][dingdocnormal] 扎卡打印成功，验片任务显示，点击【验片任务】卡片进入验片任务详情页
+[P640][dingdocnormal] 扫描【扎卡号】或录入【扎卡号】点击【确认】进入裁片信息弹窗
+[P641][dingdocnormal] 选择疵点，标记是否补全等信息点击【确认】完成对应扎号裁片检验
+[P642][dingdocnormal] 点击【检验完成】完成当前床次对应裁片验片任务
+[P643][dingdocnormal] 请至钉钉文档查看「白板」
+[P645][dingdocnormal] 待补英文
+[P646][Heading 3] 【PDA】裁剪代报工/撤回（1）
+[P647][dingdocnormal] 请至钉钉文档查看「白板」
+[P649][dingdocnormal] 点击【裁剪代报工】进入代报工详情页
+[P650][dingdocnormal] 支持点击【裁剪任务】卡片或者扫描【扎卡号】，进入代报工分配页
+[P651][dingdocnormal] 点击工序对应【请选择】支持多选对应工序
+[P652][dingdocnormal] 点击员工对应【请选择】支持多选对应员工
+[P653][dingdocnormal] 完成报工对象配置，点击【开始扫描】进入扎卡报工扫描页
+[P654][dingdocnormal] 扫描【扎卡号】或录入【扎卡号】点击【确认】获取报工扎卡对应信息
+[P655][dingdocnormal] 点击【提交】，二次确认点击【确认】完成扎卡报工
+[P656][dingdocnormal] 点击【裁剪报工查询】支持查看已报工信息，可基于【今日】【昨日】【本月】【自定义】快速筛选数据
+[P657][dingdocnormal] 点击已报工卡片上的【撤回】支持对已报工数据进行撤回操作
+[P658][dingdocnormal] 请至钉钉文档查看「白板」
+[P659][dingdocnormal] 待补英文
+[P660][Heading 2] 委外任务1
+[P661][Heading 3] 【PDA】裁片外协发出（1）
+[P662][dingdocnormal] 请至钉钉文档查看「白板」
+[P664][dingdocnormal] 点击【裁片外协发出】进入外协发出任务列表
+[P665][dingdocnormal] 点击【新增裁片外协发出任务】进入任务信息编辑页，也可点击未完成任务进行二次编辑
+[P666][dingdocnormal] 点击【外协类别】支持单选【裁判外协】或【成衣外协】
+[P667][dingdocnormal] 点击【外协工序】支持多选外协工序
+[P668][dingdocnormal] 点击【接收组织】或【来源组织】支持单选组织架构架构下的相关部门
+[P669][dingdocnormal] 点击【确定】进入扫扎页面
+[P670][dingdocnormal] 扫扎成功，定义【裁片部位选择】或快捷操作定义发出裁片，点击【确定】完成扎卡部位定义
+[P671][dingdocnormal] 查看外协发出对应扎卡信息，点击【完成】进行二次确认；确认总发出数量，点击【确定】完成裁片外协发出任务
+[P672][dingdocnormal] 已完成的裁片外协发出任务支持在【已完成】tab中查看，点击卡片查看外协发出明细
+[P673][dingdocnormal] 请至钉钉文档查看「白板」
+[P674][dingdocnormal] 待补英文
+[P675][Heading 3] 【PDA】裁片外协收回（1）
+[P676][dingdocnormal] 请至钉钉文档查看「白板」
+[P678][dingdocnormal] 点击【裁片外协收回】进入外协收回任务列表
+[P679][dingdocnormal] 点击【新增裁片外协收回任务】进入任务信息编辑页，也可点击未完成任务进行二次编辑
+[P680][dingdocnormal] 点击【外协类别】支持单选【裁判外协】或【成衣外协】；点击【接收组织】或【来源组织】支持单选组织架构架构下的相关部门，点击【确定】进入扫扎页面
+[P681][dingdocnormal] 扫扎成功，定义【裁片部位选择】或快捷操作定义发出裁片，点击【确定】完成扎卡部位定义
+[P682][dingdocnormal] 查看外协收回对应扎卡信息，点击【完成】进行二次确认；确认总收回数量，点击【确定】完成裁片外协收回任务
+[P683][dingdocnormal] 已完成的裁片外协收回任务支持在【已完成】tab中查看，点击卡片查看外协收回明细
+[P684][dingdocnormal] 请至钉钉文档查看「白板」
+[P685][dingdocnormal] 待补英文
+[P686][Heading 2] 线外任务1
+[P687][Heading 3] 【业务流程】
+[P688][dingdocnormal] 请至钉钉文档查看「流程图」
+[P690][dingdocnormal] PS：
+[P691][dingdocnormal] 【生产订单】审核完成，发布后才能【创建线外任务】
+[P692][dingdocnormal] 【生产订单-生产工序】需要维护线外工段对应工序，会影响【线外任务分配】可选工序；【线外报工】（各类）可选工序范围
+[P693][Heading 3] 【PC】创建线外任务（1）
+[P694][dingdocnormal] 请至钉钉文档查看「白板」
+[P696][dingdocnormal] 点击【新增线外任务】进入任务分配页面；支持基于【成衣色称】【尺码】进行待分配数量过滤
+[P697][dingdocnormal] 将生产订单下的【待分配数】拖拽至蓝色任务编排区域
+[P698][dingdocnormal] 定义任务对应的【生产组别】【计划线外日期】
+[P699][dingdocnormal] 点击【新增小组】支持批量生成多个线外任务；点击【-】支持删除对应线外任务
+[P700][dingdocnormal] 点击【发布】线外任务发布
+[P701][dingdocnormal] 发布后任务支持点击【编辑】对任务进行二次编辑再【发布】，注意进入生产的任务将无法再次变更
+[P702][dingdocnormal] 请至钉钉文档查看「白板」
+[P703][dingdocnormal] 待补英文
+[P704][Heading 3] 【PAD】分配线外任务（1）
+[P705][dingdocnormal] 请至钉钉文档查看「白板」
+[P707][dingdocnormal] 点击线外组长-【线外任务】进入线外任务列表页
+[P708][dingdocnormal] 点击待分配的【线外任务】进入工序编排页
+[P709][dingdocnormal] 选中【工序】支持拖拽进行合并、移除等操作，移除的工序支持从【工序选择】中拖拽回编辑区
+[P710][dingdocnormal] 选中【员工】名称支持拖拽至工序对应【操作员】
+[P711][dingdocnormal] 点击【确认分配】完成线外任务分配
+[P712][dingdocnormal] 线外任务【待生产】【生产中】状态下支持二次【工序编排】编排完成点击【确认分配】更新工序编排
+[P713][dingdocnormal] 请至钉钉文档查看「白板」
+[P715][dingdocnormal] 待补英文
+[P716][Heading 3] 【PAD】线外任务报工（1）
+[P717][dingdocnormal] 请至钉钉文档查看「白板」
+[P719][dingdocnormal] 点击【线外员工任务】进入任务列表页
+[P720][dingdocnormal] 点击状态可快速过滤对应任务，点击【线外任务】卡片进入员工报工详情页
+[P721][dingdocnormal] 扫描【扎卡号】或录入【扎卡号】点击【确认】完成报工，显示对应扎卡信息
+[P722][dingdocnormal] 请至钉钉文档查看「白板」
+[P723][dingdocnormal] 待补英文
+[P724][Heading 3] 【PDA】扫码报工（0）
+[P725][dingdocnormal] 请至钉钉文档查看「白板」
+[P727][dingdocnormal] 点击【扫码报工】进入扫扎卡报工页面
+[P728][dingdocnormal] 扫描【扎卡号】或录入【扎卡号】点击【确认】获取扎卡信息
+[P729][dingdocnormal] 点击【切换工序】选择工序
+[P730][dingdocnormal] 点击【线外报工查询】支持查看报工数据
+[P731][dingdocnormal] 支持基于【今日】【昨日】【本月】等条件进行报工查询
+[P732][dingdocnormal] 请至钉钉文档查看「白板」
+[P733][dingdocnormal] 待补英文
+[P734][Heading 3] 【PDA】线外代报工（1）
+[P735][dingdocnormal] 请至钉钉文档查看「白板」
+[P737][dingdocnormal] 点击【线外代报工】进入代报工详情页
+[P738][dingdocnormal] 支持点击【线外任务】卡片或者扫描【扎卡号】，进入代报工分配页
+[P739][dingdocnormal] 点击工序对应【请选择】支持多选对应工序
+[P740][dingdocnormal] 点击员工对应【请选择】支持多选对应员工
+[P741][dingdocnormal] 完成报工对象配置，点击【开始扫描】进入扎卡报工扫描页
+[P742][dingdocnormal] 扫描【扎卡号】或录入【扎卡号】点击【确认】获取报工扎卡对应信息
+[P743][dingdocnormal] 点击【提交】，二次确认点击【确认】完成扎卡报工
+[P744][dingdocnormal] 请至钉钉文档查看「白板」
+[P745][dingdocnormal] 待补英文
+[P746][Heading 3] 【PAD】线外代报查询（0）
+[P747][Heading 3] 【PAD】调整报工（1）
+[P748][dingdocnormal] 请至钉钉文档查看「白板」
+[P750][dingdocnormal] 点击线外组长-【线外任务】进入线外任务列表
+[P751][dingdocnormal] 点击【线外任务】（生产中、已完成）卡片进入任务详情页
+[P752][dingdocnormal] 点击【调整报工】查看已报工数据
+[P753][dingdocnormal] 基于对应色称、尺码数据点击【调整】进入弹窗页修改报工数据
+[P754][dingdocnormal] 单选【调数量】（对当前人员报工数据做增减）
+[P755][dingdocnormal] 单选【转移】（将一定数量报工转移至某个员工）
+[P756][dingdocnormal] 支持查看【扎卡扫描记录】【调整记录】
+[P757][dingdocnormal] 请至钉钉文档查看「白板」
+[P758][dingdocnormal] 待补英文
+[P759][Heading 3] 【PAD】看报工数据（1）
+[P760][dingdocnormal] 请至钉钉文档查看「白板」
+[P762][dingdocnormal] 点击【产量汇总】进入数据汇总页面
+[P763][dingdocnormal] 点击【柱状图】进入对应数据明细
+[P764][dingdocnormal] 点击员工数据，可查看【款号】【工序】维度汇总报工数据
+[P765][dingdocnormal] 点击【扎卡路径】进入扫扎卡查路径页面
+[P766][dingdocnormal] 扫【扎卡号】或录入【扎卡号】点击【查询】可查看对应扎卡工序路径
+[P767][dingdocnormal] 请至钉钉文档查看「白板」
+[P769][dingdocnormal] 待补英文
+[P770][Heading 2] 【缝制任务】（0）
+[P771][Heading 3] 【业务流程】
+[P772][dingdocnormal] 请至钉钉文档查看「流程图」
+[P773][Heading 3] 【PC】流水线配置
+[P774][dingdocnormal] 请至钉钉文档查看「白板」
+[P776][Heading 3] 【PC】吊挂全控配置
+[P777][Heading 3] 【PC】新建缝制任务
+[P778][Heading 3] 【PAD】缝制任务产前准备
+[P779][Heading 3] 【PAD/数字终端】挂片
+[P780][Heading 3] 【PAD/数字终端】缝制站位
+[P781][Heading 3] 【PAD/数字终端】质检返工
+[P782][Heading 3] 【PAD】吊挂调制(站位/衣架)
+[P783][Heading 3] 【PAD】产量汇总
+[P784][Heading 3] 【PAD】质量报表
+[P786][Heading 2] 尾整任务1
+[P787][Heading 3] 【业务流程】
+[P788][dingdocnormal] 请至钉钉文档查看「流程图」
+[P790][dingdocnormal] PS：
+[P791][dingdocnormal] 【生产订单】审核完成，发布后才能【创建尾整任务】
+[P792][dingdocnormal] 【尾整任务】中用到的包码为生产中从【缝制下线、水洗收回、分拣下线】中生成且完成尾整接收的包码（支持PC/PDA操作接收）
+[P793][dingdocnormal] 【生产订单-生产工序】需要维护尾整工段对应工序，会影响【尾整任务分配】可选工序；【尾整报工】（各类）可选工序范围
+[P794][Heading 3] 【PC】创建尾整任务（1）
+[P795][dingdocnormal] 请至钉钉文档查看「白板」
+[P797][dingdocnormal] 点击【新增尾整任务】进入生产订单选择
+[P798][dingdocnormal] 单选【生产订单】点击【确认】进入尾整任务编辑页面
+[P799][dingdocnormal] 将【待分配数】卡片，拖拽至右侧对应尾整任务单号行下方
+[P800][dingdocnormal] 维护对应任务计划时间、分配部门/车间、日目标产量、分配数等关键信息
+[P801][dingdocnormal] 点击【发布】发布尾整任务，点击【保存】保存草稿
+[P802][dingdocnormal] 发布成功后支持二次编辑
+[P803][dingdocnormal] 请至钉钉文档查看「白板」
+[P804][dingdocnormal] 待补英文
+[P805][Heading 3] 【PAD】查看尾整任务（1）
+[P806][dingdocnormal] 请至钉钉文档查看「白板」
+[P808][dingdocnormal] 点击【切换订单】进入尾整任务单号选择支持基于状态、款号、车间做快速筛选，点击单号卡片，尾整管理页显示信息切换对应任务信息
+[P809][dingdocnormal] 单选【全部任务】等进入尾整任务单号列表
+[P810][dingdocnormal] 【尾整详情】可查看任务分配信息，点击【工序编排】进入工序查看
+[P811][dingdocnormal] 请至钉钉文档查看「白板」
+[P812][dingdocnormal] 待补英文
+[P813][Heading 3] 【PAD】尾整任务产前准备(分配)（1）
+[P814][dingdocnormal] 请至钉钉文档查看「白板」
+[P816][dingdocnormal] 点击【工序编排】进入编排页
+[P817][dingdocnormal] 点击【】入可配置抽检比例、产量工序（默认产量工序=最后一个工序，将影响生产进度中的产量计算）
+[P818][dingdocnormal] 点击【工序编排】进入编排工作站/工序，支持选中【工作站】拖拽至对应工序；支持选中【工序】拖拽合或拖拽至删除区
+[P819][dingdocnormal] 点击【站位编辑】进入站位编辑，支持定义站位属性，仅当前任务级（对应PC：站位分类）
+[P820][dingdocnormal] 请至钉钉文档查看「白板」
+[P821][dingdocnormal] 待补英文
+[P822][Heading 3] 【PDA】尾整包流报工（件/包码）（1）
+[P823][dingdocnormal] 请至钉钉文档查看「白板」
+[P825][dingdocnormal] 点击【尾整包流报工】进入尾整任务列表
+[P826][dingdocnormal] 点击【尾整任务】卡片进入扫码报工(包码)页面，点击【请选择】支持多选工序、报工员工
+[P827][dingdocnormal] 点击【请输入】支持定义多人报工分配比例
+[P828][dingdocnormal] 点击【开始扫描】进入扫描包码页面
+[P829][dingdocnormal] 扫描【包码】或录入【包码】点击【确认】获取包码对应信息
+[P830][dingdocnormal] 点击【调整】支持调整包码报工件数
+[P831][dingdocnormal] 点击【手工录入】进入手工报工页，支持选择尾整任务单对应【成衣颜色】【尺码】【报工数】点击进行手工报工
+[P832][dingdocnormal] 点击【确定】完成报工
+[P833][dingdocnormal] 请至钉钉文档查看「白板」
+[P834][dingdocnormal] 待补英文
+[P835][Heading 3] 【PDA】尾整报工(RFID)（1）
+[P836][dingdocnormal] 请至钉钉文档查看「白板」
+[P838][dingdocnormal] 点击【尾整报工】进入方式选择页
+[P839][dingdocnormal] 点击【手动选择】进入尾整任务列表页（【快速选择】：当前绑定的工作站，今天有过报工支持快速选择任务单），点击任务卡片进入“尾整报工”详情页
+[P840][dingdocnormal] 点击【请选择】支持多选工序、报工员工
+[P841][dingdocnormal] 点击【开始扫描】进入扫描RFID页，扫描成功点击【提交】完成报工
+[P842][dingdocnormal] 请至钉钉文档查看「白板」
+[P843][dingdocnormal] 待补英文
+[P844][Heading 3] 【PAD】其他报工（件）（1）
+[P845][dingdocnormal] 请至钉钉文档查看「白板」
+[P847][dingdocnormal] 点击【其他报工】进入其他报工记录页，点击【新增】进入新增报工页
+[P848][dingdocnormal] 选择【生产订单号】，支持模糊搜索下拉选择
+[P849][dingdocnormal] 点击【工序名称】单选对应生产订单号工序名称（线外工段、尾整工段对应工序）；点击【员工名称】单选报工员工
+[P850][dingdocnormal] 录入【报工数量】
+[P851][dingdocnormal] 点击【提交】完成报工；点击【提交并继续报工】继续报工
+[P852][dingdocnormal] 请至钉钉文档查看「白板」
+[P853][dingdocnormal] 待补英文
+[P854][Heading 3] 【PDA】产量记录/报工记录（1）
+[P855][dingdocnormal] 请至钉钉文档查看「白板」
+[P857][dingdocnormal] 点击【产量记录】支持查看个人产量数据
+[P858][dingdocnormal] 点击【个人产量】查看小组产量数据
+[P859][dingdocnormal] 点击【】单选对应人员，点击【确认】查看个人产量数据
+[P860][dingdocnormal] 点击【个人产量】，点击【】多选对应组别（注意：位置分配未分配生产组别将无数据显示）
+[P861][dingdocnormal] 点击【报工记录】支持查看/撤回报工
+[P862][dingdocnormal] 点击【撤回】，选择【确定】撤回对应报工
+[P863][dingdocnormal] 请至钉钉文档查看「白板」
+[P864][dingdocnormal] 待补英文
+[P866][Heading 2] 【样衣】（0）
+[P867][Heading 4] 资料
+[P868][Heading 5] 样衣资料
+[P869][Heading 5] 工艺撰写
+[P870][Heading 5] 技术协作
+[P871][Heading 4] 采购
+[P872][Heading 5] 物料需求
+[P873][Heading 5] 采购合同
+[P874][Heading 4] 物料
+[P875][Heading 5] 入库通知单管理
+[P876][Heading 5] 入库
+[P877][Heading 5] 出库
+[P878][Heading 5] 库存数量调整
+[P879][Heading 5] 库存状态调整
+[P880][Heading 5] 库存查询
+[P881][Heading 4] 生产
+[P882][Heading 5] 办单管理
+[P883][Heading 5] 办单审核
+[P884][Heading 5] 办单排期
+[P885][Heading 5] 纸样任务管理
+[P886][Heading 5] 裁剪任务
+[P887][Heading 5] 车缝任务
+[P888][Heading 5] 样衣洗水
+[P889][Heading 2] 其他
+[P891][Heading 3] 【松布仓库】（0）
+
+
+--- HEADING STRUCTURE ---
+  Heading 2: 文档说明
+  Heading 4: 文档信息
+  Heading 4: 修改记录
+  Heading 2: 配置1
+  Heading 3: 【PC】客户配置（3）
+  Heading 3: 【PC】供应商配置（3）
+  Heading 3: 【PC】基础工序管理（1）
+  Heading 3: 【PC】基础面料（1）
+  Heading 3: 【PC】基础辅料（1）
+  Heading 3: 【PC】款号管理（1）
+  Heading 4: 物料需求
+  Heading 4: 其他
+  Heading 2: 销售1
+  Heading 3: 【业务流程】
+  Heading 3: 【PC】新增销售订单（1）
+  Heading 3: 【PC】复制销售订单（1）
+  Heading 3: 【PC】销售订单-基本资料（1）
+  Heading 3: 【PC】销售订单-款号（1）
+  Heading 3: 【PC】销售订单-颜色尺码（1）
+  Heading 3: 【PC】销售订单-附加服务（1）
+  Heading 3: 【PC】销售订单-装箱（1）
+  Heading 3: 【PC】销售订单-操作日志（1）
+  Heading 3: 【PC】订单预排期（1）
+  Heading 3: 【PC】订单排期表（1）
+  Heading 2: 采购1
+  Heading 3: 【业务流程】面料采购
+  Heading 3: 【PC】物料需求（1）
+  Heading 3: 【PC】物料需求审核（1）
+  Heading 3: 【PC】面料采购计划（1）
+  Heading 3: 【PC】面料采购订单（1）
+  Heading 3: 【PC】面料收货通知（1）
+  Heading 3: 【PC】面料其他收货通知单（1）
+  Heading 3: 【PDA】面料收货（1）
+  Heading 3: 【PC】面料退货通知（1）
+  Heading 3: 【PC】面料期初收货通知单（1）
+  Heading 3: 【业务流程】辅料采购
+  Heading 3: 【PC】辅料采购计划（1）
+  Heading 3: 【PC】辅料采购订单（1）
+  Heading 3: 【PC】辅料收货通知（1）
+  Heading 4: 先录后贴（1）
+  Heading 4: 无箱贴（1）
+  Heading 4: 先贴后录（0-PDA没走通）
+  Heading 3: 【PDA】辅料收货（1）
+  Heading 4: 按箱收货（1）
+  Heading 4: 无箱贴收货（1）
+  Heading 4: 物料收货（1）
+  Heading 3: 【PC】辅料退货通知（1）
+  Heading 2: 质检（标准版）
+  Heading 3: 【业务流程】面料
+  Heading 3: 【PC】面料质检（1）
+  Heading 3: 【PAD】面料入库检验（1）
+  Heading 3: 【PC】面料质检明细/确认结果（1）
+  Heading 3: 【业务流程】辅料
+  Heading 3: 【PC】辅料质检（1）
+  Heading 3: 【PAD】辅料入库检验（1）
+  Heading 3: 【PC】辅料质检明细/确认结果
+  Heading 2: 【面料仓库】0
+  Heading 2: 【辅料仓库】0
+  Heading 2: 【裁片仓库】0
+  Heading 2: 【成品仓库】0
+  Heading 3: 【业务流程】（1）
+  Heading 3: 成品收货通知单（0）
+  Heading 3: 成品物料清单（0）
+  Heading 3: 成品入库单（0）
+  Heading 3: 成品出库单（0）
+  Heading 3: 成品出库通知单（0）
+  Heading 3: 成品出入库流水（0）
+  Heading 3: 成品库存管理（0）
+  Heading 3: 成品箱库存管理（0）
+  Heading 2: 订单1
+  Heading 3: 生产订单（1）
+  Heading 3: 生产订单审核（1）
+  Heading 2: 生产领料0/1
+  Heading 3: 面料领料申请单（1）
+  Heading 3: 辅料领料申请单（0）
+  Heading 3: 裁片领料申请单（0）
+  Heading 2: 松布任务1
+  Heading 3: 【业务流程】
+  Heading 3: 【PDA】按单出库（1）
+  Heading 3: 【PC】编辑松布任务/批量松布（1）
+  Heading 3: 【PAD】松布任务（1）
+  Heading 2: 裁剪任务1
+  Heading 3: 【业务流程】
+  Heading 3: 【PC】创建裁剪任务（1）
+  Heading 3: 【PAD】拉布任务（1）
+  Heading 3: 【PC】裁剪任务-扎卡打印（1）
+  Heading 3: 【PAD】验片任务（1）
+  Heading 3: 【PDA】裁剪代报工/撤回（1）
+  Heading 2: 委外任务1
+  Heading 3: 【PDA】裁片外协发出（1）
+  Heading 3: 【PDA】裁片外协收回（1）
+  Heading 2: 线外任务1
+  Heading 3: 【业务流程】
+  Heading 3: 【PC】创建线外任务（1）
+  Heading 3: 【PAD】分配线外任务（1）
+  Heading 3: 【PAD】线外任务报工（1）
+  Heading 3: 【PDA】扫码报工（0）
+  Heading 3: 【PDA】线外代报工（1）
+  Heading 3: 【PAD】线外代报查询（0）
+  Heading 3: 【PAD】调整报工（1）
+  Heading 3: 【PAD】看报工数据（1）
+  Heading 2: 【缝制任务】（0）
+  Heading 3: 【业务流程】
+  Heading 3: 【PC】流水线配置
+  Heading 3: 【PC】吊挂全控配置
+  Heading 3: 【PC】新建缝制任务
+  Heading 3: 【PAD】缝制任务产前准备
+  Heading 3: 【PAD/数字终端】挂片
+  Heading 3: 【PAD/数字终端】缝制站位
+  Heading 3: 【PAD/数字终端】质检返工
+  Heading 3: 【PAD】吊挂调制(站位/衣架)
+  Heading 3: 【PAD】产量汇总
+  Heading 3: 【PAD】质量报表
+  Heading 2: 尾整任务1
+  Heading 3: 【业务流程】
+  Heading 3: 【PC】创建尾整任务（1）
+  Heading 3: 【PAD】查看尾整任务（1）
+  Heading 3: 【PAD】尾整任务产前准备(分配)（1）
+  Heading 3: 【PDA】尾整包流报工（件/包码）（1）
+  Heading 3: 【PDA】尾整报工(RFID)（1）
+  Heading 3: 【PAD】其他报工（件）（1）
+  Heading 3: 【PDA】产量记录/报工记录（1）
+  Heading 2: 【样衣】（0）
+  Heading 4: 资料
+  Heading 5: 样衣资料
+  Heading 5: 工艺撰写
+  Heading 5: 技术协作
+  Heading 4: 采购
+  Heading 5: 物料需求
+  Heading 5: 采购合同
+  Heading 4: 物料
+  Heading 5: 入库通知单管理
+  Heading 5: 入库
+  Heading 5: 出库
+  Heading 5: 库存数量调整
+  Heading 5: 库存状态调整
+  Heading 5: 库存查询
+  Heading 4: 生产
+  Heading 5: 办单管理
+  Heading 5: 办单审核
+  Heading 5: 办单排期
+  Heading 5: 纸样任务管理
+  Heading 5: 裁剪任务
+  Heading 5: 车缝任务
+  Heading 5: 样衣洗水
+  Heading 2: 其他
+  Heading 3: 【松布仓库】（0）
+
+
+--- TABLE 0 ---
+  Row0: 系统名称 | 最新更新日期 | 最新系统版本
+  Row1: 麦塔西智能制造协同平台IMS3.0 |  | 

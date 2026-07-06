@@ -1,0 +1,35 @@
+{
+  "_description": "[客户名称] — [环境类型: sit/customer/production]",
+  "type": "customer",
+  "customer": "",
+  "url": "http://",
+  "credentials": {
+    "username": "",
+    "password": ""
+  },
+  "ui": {
+    "sidebar": {
+      "module_selector": ".mts-layout-mix-sider-module__item",
+      "module_names": {},
+      "expand_trigger": ".menu-trigger",
+      "submenu_selector": null
+    },
+    "page_title_format": "",
+    "content_cards": {
+      "selector": "",
+      "dashboard_shortcuts": []
+    },
+    "login": {
+      "username_selector": "#form_item_username",
+      "password_selector": "#form_item_password",
+      "submit_selector": ".ant-btn-primary"
+    }
+  },
+  "url_patterns": {},
+  "features": {
+    "has_third_menu": false,
+    "has_dashboard_cards": false,
+    "module_name_format": ""
+  },
+  "differences_from_sit": []
+}

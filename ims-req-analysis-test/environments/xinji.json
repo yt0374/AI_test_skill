@@ -1,0 +1,62 @@
+{
+  "_description": "新基(柬埔寨)模拟生产环境 — 客户定制版本，用于客户差异化测试",
+  "type": "customer",
+  "customer": "新基",
+  "url": "http://bak.xinji.dtsimple.pro",
+  "credentials": {
+    "username": "666888",
+    "password": "ta3737"
+  },
+  "ui": {
+    "sidebar": {
+      "module_selector": ".mts-layout-mix-sider-module__item",
+      "module_names": {
+        "样衣": "样衣", "销售": "销售", "采购": "采购",
+        "仓库": "仓库", "生产": "生产", "质检": "质检",
+        "设备": "设备", "报表": "报表", "数据": "数据",
+        "吊挂": "吊挂", "平板": "平板", "人事": "人事",
+        "看板": "看板", "系统": "系统"
+      },
+      "expand_trigger": ".menu-trigger",
+      "submenu_selector": null
+    },
+    "page_title_format": "首页 - 麦塔西智能制造协同平台",
+    "content_cards": {
+      "selector": "span.truncate.text-center",
+      "dashboard_shortcuts": ["销售订单", "订单预排期", "订单排期表", "生产订单", "日产量报表", "物料需求"]
+    },
+    "login": {
+      "username_selector": "#form_item_username",
+      "password_selector": "#form_item_password",
+      "submit_selector": ".ant-btn-primary",
+      "has_enterprise_selector": false,
+      "flow": "username → password → click login"
+    }
+  },
+  "url_patterns": {
+    "销售订单": "/#/sale/order/saleList",
+    "订单预排期": "/#/sale/scheduling/orderScheduling",
+    "物料需求审核": "/#/purchase/demand/audit",
+    "面料采购计划": "/#/purchase/order/fabricPlan",
+    "面料采购订单": "/#/purchase/order/fabricOrder",
+    "生产订单": "/#/production/plan/order",
+    "生产订单_短": "/#/production/plan",
+    "车间预排程": "/#/production/schedule",
+    "松布任务": "/#/production/task/loosen",
+    "面料仓出入库流水": "/#/warehouse/fabric/flow",
+    "盘点单管理": "/#/warehouse/inventoryCheck"
+  },
+  "features": {
+    "has_third_menu": false,
+    "has_dashboard_cards": true,
+    "module_name_format": "{name}"
+  },
+  "differences_from_sit": [
+    "模块命名无 gm.前缀和#N后缀",
+    "物流模块替换为设备模块",
+    "子菜单为内容区卡片而非侧边栏面板",
+    "页面标题不含 gm.首页#2 前缀",
+    "URL 路径使用短格式(如 /production/schedule)",
+    "登录后首页为常用功能卡片布局"
+  ]
+}
