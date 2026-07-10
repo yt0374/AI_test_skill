@@ -11,116 +11,49 @@ description: >-
 
 # IMS ERP 需求分析与测试生成
 
-为 **瑞晟智能制造协同平台** 提供完整的测试生命周期：
+为 **瑞晟智能制造协同平台** 提供完整测试生命周期：
 **需求分析 → 生成测试用例 → Playwright自动化脚本和执行 → 测试报告**
 
 ## Core Principle: Data-Driven Testing
 
-ERP systems are fundamentally data-intensive — the same business logic applies to many
-different entities (customers, materials, suppliers, warehouses). A single requirement like
-"validate credit limit" must work for hundreds of customers with different credit profiles.
-Testing with just one data point is insufficient.
-
-This skill therefore treats **test data as a first-class deliverable**, not an afterthought.
-Every phase extracts, catalogs, and leverages real data from the ERP system to ensure tests
-cover the full range of business scenarios.
+ERP 系统是数据密集型的 — 同一业务逻辑适用于大量不同实体。单一数据点测试是不够的，因此**测试数据是一等交付物**。每个阶段都从 ERP 系统中提取、编目和利用真实数据。
 
 ## System Context
 
-The ERP serves the garment/apparel manufacturing industry with 14 sidebar modules.
-Core business data is captured from 9 modules in `module_texts.txt` (project root or
-`Documents/ERP-test/`). **Always read this file first.** It is the single source of truth for:
-- **Page structure**: Menu paths, page names, tab labels
-- **Entity instances**: Real customer names (gm.销售#1), material codes (ML863, ML870)
-- **Data patterns**: Number formats, date formats, ID conventions
+- **数据源**: `module_texts.txt`（项目根目录或 `Documents/ERP-test/`）— 页面结构、实体实例、数据模式。**始终先读这个文件。**
+- **环境配置**: `environments/` 目录 — SIT/UAT/xinji/jingmen/ajn 五环境 URL、选择器、模块名。默认 `sit` 环境。
+- **设备终端**: PC（管理功能）、PAD（平板触控）、PDA（扫码）、工业平板（工位固定）。详见 `references/consolidated_domain_knowledge.md`。
+- **领域知识**: 主参考 `references/consolidated_domain_knowledge.md`（状态机、校验规则、计算公式），模块详情见 `references/feature_*.md`，字段定位器见 `references/page_field_dictionary.md`。
 
-### Multi-Environment Support
+**参考文件加载策略（按需）：**
 
-The IMS system is deployed across multiple environments (SIT, customer production).
-Each environment may have different UI structures, module names, and URL patterns.
-**All environment-specific configs are in `environments/`.**
-
-| Environment | Type | URL | Key Differences |
-|------------|------|-----|----------------|
-| `sit` | 测试 | test.fj.dtsimple.pro | `gm.xx#N`, `.third-menu`, 13 enterprises, metas2660 |
-| `uat` | 验收 | uat.fj.dtsimple.pro | 6 enterprises, 最佳智造→qwe123 |
-| `xinji` | 客户 | bak.xinji.dtsimple.pro | Simple names, dashboard cards, short URLs |
-| `jingmen` | 客户 | bak.jmym.dtsimple.pro | Direct login, ym5579 |
-| `ajn` | 客户 | bak.ajn.dtsimple.pro | Direct login, oglla6888 |
-
-**When the user mentions a specific environment (e.g., "在新基环境测试"), load the
-corresponding `environments/{name}.json` and use that environment's selectors, URLs,
-and module names. When no environment is specified, default to `sit`.**
-
-### Devices & Terminals
-
-| Device | Typical Modules | Interaction |
-|--------|----------------|-------------|
-| **PC** (Browser) | Configuration, Order management, Reports, QC review | Management functions |
-| **PAD** (Tablet) | QC inspection, Task assignment, Sewing prep, Process arrangement | Shop floor touch |
-| **PDA** (Handheld) | Material receiving, Cargo ops, Outbound, Work reporting | Barcode scanning |
-| **Industrial Tablet** | Piece hanging, QC in hanging system | Station-based fixed |
-
-### Domain Knowledge Reference
-
-**Primary reference — read this first:**
-- **`references/consolidated_domain_knowledge.md`** (482 lines) — The authoritative knowledge base.
-- **`references/mainline_baseline.md`** — IMS 主线功能基线（14模块, 268项, 来自最佳智造）
-- **`references/customer_variants.md`** — 客户定制差异记录（千虹/新基/荆门/安吉纳 vs 基线）
-
-**Supplementary references — read as needed:**
-| File | Content | When to Read |
-|------|---------|-------------|
-| `references/feature_production_offline.md` | 生产订单、线外模块、工作站配置 (356L) | Production testing |
-| `references/feature_procurement_picking.md` | 领料单、裁片外协、外购品采购 (635L) | Procurement testing |
-| `references/feature_style_reports.md` | 款号管理、报表格式化、导出 (392L) | Style/reports testing |
-| `references/page_field_dictionary.md` | 176+页面字段/按钮/筛选器 (2,890L) | Playwright locators |
-| `references/error_messages_catalog.md` | ~163条错误/警告/确认消息 (342L) | Expected results |
-| `references/implicit_business_rules.md` | 71条推断规则 (798L) | Data-driven scenarios |
-| `references/live_system_menu_tree.md` | 实时系统菜单树 (297L) | Navigation tests |
-| `references/knowledge_gap_analysis.md` | 覆盖差距+补充策略+完整度评估 (905L) | Gap analysis |
-| `references/sme_interview_guides.md` | P0+P1模块访谈问卷 (1253L) | SME interviews |
-| `references/mainline_baseline.md` | 主线基线14模块268项+补充记录 (268L) | Baseline reference |
-| `references/功能测试用例验收标准.md` | 功能验收23项 (422L) | Quality gate |
-| `references/接口自动化测试用例验收标准.md` | API验收27项 (486L) | Quality gate |
-| `references/测试用例模版.md` | 统一文档12章模板 (355L) | Output format |
-
-| # | Module | Key Sub-Menus |
-|---|--------|--------------|
-| 1 | 销售 (Sales) | 销售订单, 订单预排期, 订单排期表 |
-| 2 | 采购 (Procurement) | 物料需求审核, 按单物料需求, 采购计划/订单, 收货/退货通知单 |
-| 3 | 生产 (Production) | 预排程, 生产排程表, 缝制日目标, 生产订单, 任务管理, 委外, 领料, 装箱 |
-| 4 | 仓库 (Warehouse) | 工作区/库区/库位, 面料/松布/辅料/裁片/成品/半成品仓库, 盘点, 调度, 开箱 |
-| 5 | 质检 (QC) | 面料/辅料/成品/缝制质检, 质检管理, 质检配置 |
-| 6 | 物流 (Logistics) | 半成品收货通知单 |
-| 7 | 报表 (Reports) | 50+ reports: 委外/缝制/采购/财务/裁剪/吊挂/样衣/生产/仓库 |
-| 8 | 数据 (Master Data) | 工序/面料/辅料, 供应商/客户/品牌, 工厂日历, 款号/模板/工艺 |
-| 9 | 吊挂 (Hanging) | 流水线配置, 扫码终端, 分拣MES/下位配置 |
+| 场景 | 加载文件 |
+|------|---------|
+| **始终加载** | `consolidated_domain_knowledge.md` |
+| UI 流程 | `功能测试用例验收标准.md` + `测试用例模版.md` |
+| API 规格 | `接口自动化测试用例验收标准.md` |
+| 客户定制 | `customer_variants.md` + `environments/{name}.json` |
+| 特定模块 | `feature_{module}.md`（如存在） |
+| **UI 自动化** | `ims_ui_automation_patterns.md` — Ant Design/IMS 交互坑点 |
+| Light 模式 | 仅始终加载的3个文件 |
 
 ## When to Use
 
-Trigger this skill when the user:
-- Describes a business requirement or feature request for the ERP
-- Asks to "analyze requirements" (需求分析) or "generate test cases" (生成测试用例)
-- Provides a PRD, spec document, or user story for ERP functionality
-- Wants a test plan for specific ERP modules
-- Asks to create automated Playwright test scripts for ERP pages
-- References specific modules like 销售订单, 采购计划, 生产排程, 仓库管理等
+- 描述了 ERP 的业务需求或功能需求
+- 要求"需求分析"或"生成测试用例"
+- 提供了 PRD、规格文档或用户故事
+- 要为特定 ERP 模块制定测试计划
+- 要创建 Playwright 自动化测试脚本
 
 ## Step 0: Requirement Classification
 
-Before analysis, classify the requirement type to determine test strategy:
-
-| Type | Signals | Test Strategy |
+| Type | Signals | Strategy |
 |:---:|------|------|
 | **新增** | New module/API, no "change/optimize" keywords | Full 6-step lifecycle |
-| **变更** | "调整/改为/新增字段/优化逻辑" | Change impact analysis + regression |
-| **存量** | "补充XX模块用例", no standalone doc | Baseline gap fill only |
+| **变更** | "调整/改为/新增字段/优化逻辑" | Change impact analysis + regression, output `change_impact.md` |
+| **存量** | "补充XX模块用例", no standalone doc | Baseline gap fill, cross-reference `mainline_baseline.md` |
 
-**变更需求** must produce `change_impact.md` documenting affected modules, cases, and scripts.
-**存量需求** cross-references `references/mainline_baseline.md` to identify gaps.
-
-Detailed step docs: `references/steps/Step0_需求分类.md`
+详见 `references/steps/Step0_需求分类.md`
 
 ---
 
@@ -129,154 +62,46 @@ Detailed step docs: `references/steps/Step0_需求分类.md`
 ```
 Input (Doc/Conversation)
   │
-  ├─[1] 需求分析
-  │   ├── requirements_spec.md
-  │   ├── requirements_audit.md
-  │   └── test_data_inventory.md
-  │
-  ├─[2] 生成测试用例
-  │   ├── test_cases.md (统一文档 — 8章结构, 含功能+API)
-  │   ├── test_coverage_matrix.md
-  │   └── test_data.csv / test_data.json
-  │
-  ├─[3] Playwright自动化脚本和执行
-  │   ├── erp_tests/ (Playwright project)
-  │   ├── pytest.ini + run_tests.sh/ps1
-  │   └── pytest_results.json
-  │
-  └─[4] 测试报告
-      ├── test_report.md / test_report.html
-      ├── traceability_report.md
-      └── defects/
+  ├─[1] 需求分析 → requirements_spec.md + requirements_audit.md + test_data_inventory.md
+  ├─[2] 测试用例 → test_cases.md (8章统一文档) + test_coverage_matrix.md + test_data.csv/json
+  ├─[3] 自动化   → erp_tests/ (Playwright+pytest) + pytest.ini + run_tests.sh/ps1
+  └─[4] 测试报告 → test_report.md + traceability_report.md + defects/
 ```
-
-Always run all 4 sections in sequence unless the user explicitly asks for a subset.
 
 ---
 
 # 1. 需求分析
 
-## 1.1 Understand the Input
+## 1.1 提取需求
 
-Read any files the user provides. If the user describes requirements conversationally,
-treat the conversation as the source material. Also read `module_texts.txt` to ground
-the analysis in the actual ERP module structure.
+从输入中提取：**功能点(F-xx)**、**业务规则(R-xx)**、**数据流转**、**角色/参与者**、**前置/后置条件**、**边界/异常场景**。
 
-## 1.2 Extract Requirements
+## 1.2 文档质量审计（必做）
 
-From the input, extract and organize:
+真实需求文档常有错误，在传播到测试用例前主动识别：
 
-- **Functional Points (功能点)**: What the system must do. Each point is a discrete
-  capability: "user can create a sales order", "system validates inventory before
-  confirming order".
-- **Business Rules (业务规则)**: Constraints and logic. "A sales order must have a
-  valid customer ID", "采购订单金额超过10万需要主管审批".
-- **Data Flow (数据流转)**: How data moves between modules. "Sales order → Production
-  order → Material requirement → Purchase order → Receiving → Warehouse".
-- **Actors/Roles (角色)**: Who interacts with the system. Operators, managers, external
-  suppliers, warehouse staff.
-- **Preconditions & Postconditions (前置/后置条件)**: What must be true before and
-  after each function.
-- **Edge Cases & Exceptions (边界/异常)**: Error conditions, boundary values, special
-  handling.
+- **API/接口问题**: 字段名冲突、数据类型不匹配、占位符/复用字段名
+- **枚举问题**: 基数不匹配、缺失空值处理、未定义枚举值
+- **结构问题**: 缺失回调字段、不完整状态转换、未定义错误场景
 
-## 1.3 Audit Requirements Document Quality (MANDATORY)
+输出 `requirements_audit.md`（Critical Issues / Warnings / Assumptions 三表格式）。
 
-Real requirements documents often contain errors. Proactively identify them before
-they propagate into test cases. Check for:
+## 1.3 状态机分析
 
-**API/Interface Issues:**
-- **Field name conflicts**: Same field name used for different concepts across tables
-  (e.g., `materialUniqueCode` used for both "物料编码" and "物料类型")
-- **Data type mismatches**: Enum described as `boolean` but has 3 states (e.g., 松布状态:
-  待松布/已松布/免松 cannot be boolean)
-- **Placeholder/reused field names**: Same API field name maps to different business
-  concepts in different tables (e.g., `colorName` for both "色称" and "尺码")
+对需求中涉及的每个实体，识别生命周期状态和合法转换。**每个状态转换 = 一个测试用例**（合法→P1，非法→P2）。
 
-**Enum & Value Issues:**
-- **Enum cardinality mismatch**: Described values don't match actual field type
-- **Missing null/empty handling**: What happens when optional fields are empty?
-- **Undefined enum values**: Values mentioned in flows but not in enum definitions
+参考 `references/consolidated_domain_knowledge.md` 中已编目的状态机。
 
-**Structural Issues:**
-- **Missing callback fields**: Async APIs define request but not callback structure
-- **Incomplete state transitions**: States mentioned but transitions not specified
-- **Undefined error scenarios**: Business rules without corresponding error handling
+## 1.4 测试数据编目
 
-**Format as a Document Quality Report** — output `requirements_audit.md`:
-```markdown
-# Requirements Document Audit: [Document Name]
+扫描 `module_texts.txt` 提取实体数据：Users(`gm.模块名#N`)、Materials(`ML`前缀码)、Customers、Warehouse Types、Status Values、Date/Time Formats、ID Conventions。
 
-## Critical Issues (block testing)
-| ID | Issue | Location | Impact | Suggested Fix |
-|----|-------|----------|--------|---------------|
-| AUD-001 | Field `X` reused for 2 concepts | Table 5 vs Table 6 | API test data corrupted | Rename to distinct names |
+输出 `test_data_inventory.md`：每个实体类型识别变化维度并编目。
 
-## Warnings (clarify before testing)
-| ID | Issue | Location | Question for SME |
-|----|-------|----------|-----------------|
-
-## Assumptions Made
-| ID | Assumption | Reason | Risk if Wrong |
-|----|-----------|--------|---------------|
-```
-
-This audit catches issues that would otherwise become false-positive test failures.
-
-## 1.4 Map to ERP Modules & Extract State Machines
-
-Match each functional point to the specific ERP module(s) it belongs to. Use the
-module structure from `module_texts.txt`. A single requirement may span multiple
-modules — flag these as cross-module concerns.
-
-**State Machine Analysis:** For every entity involved in the requirements, identify
-its lifecycle states and valid transitions. State machines drive test scenarios:
-every transition is a test case, every invalid transition is a boundary test.
-
-Use `references/consolidated_domain_knowledge.md` for the catalog of documented state
-machines. When analyzing new requirements, compare against known states to identify
-gaps or new states being introduced.
-
-Example — if the requirement involves a purchase order, the state machine is:
-```
-草稿 --[生效]--> 生效 --[确认到货]--> locks receipt notices
-草稿 --[删除]--> only in 草稿
-```
-This yields at minimum: TC for 生效, TC for 确认到货, TC for 删除草稿, TC for
-attempting to delete 生效 (should fail).
-
-## 1.5 Extract Test Data Sources
-
-This is a critical step. `module_texts.txt` contains real ERP entity data embedded
-in the captured page text. Extract and catalog this data systematically.
-
-Scan `module_texts.txt` for these entity types:
-
-| Entity Type | How to Identify | Examples |
-|-------------|----------------|----------|
-| **Users/Roles** | `gm.模块名#N` patterns | gm.销售#1, gm.采购#2, gm.仓库#1 |
-| **Materials/Style Numbers** | `ML` prefix codes | ML863, ML870 |
-| **Customers** | Names in sidebar/user lists | ZOU WENQIANG, CHEN FEIMAN |
-| **Warehouse Types** | 面料/松布/辅料/裁片/成品/半成品 + 仓库 | 面料仓库, 成品仓库 |
-| **Status Values** | Workflow states visible in page text | Draft, Issued, Counting, Completed |
-| **Date/Time Formats** | Timestamp patterns | 2026/06/30 08:00:13 |
-| **ID Conventions** | Numeric ID patterns | 108485, 100214 |
-
-**How to catalog — output `test_data_inventory.md`:**
-
-For each entity type, identify distinct variation categories relevant to testing.
-Example for customer credit profiles:
-| Category | Description | Expected Behavior |
-|----------|-------------|-------------------|
-| Normal credit | Has sufficient credit | Order passes |
-| Zero credit | Credit limit = 0 | Order blocked |
-| No credit record | New customer, no credit data | Use default/ask |
-
-## 1.6 Output: `requirements_spec.md`
+## 1.5 输出: `requirements_spec.md`
 
 ```markdown
-# Requirements Specification: [Feature/Module Name]
-
+# Requirements Specification: [Feature/Module]
 ## 1. Overview + Business Context
 ## 2. Functional Points (F001, F002...)
 ## 3. Business Rules (R001, R002...)
@@ -290,175 +115,46 @@ Example for customer credit profiles:
 
 # 2. 生成测试用例
 
-## 2.1 Build Test Coverage Matrix
+## 2.1 优先级框架
 
-For each functional point, define test scenarios. Each scenario links back to its
-requirement via a unique ID.
+| 优先级 | 范围 | 阻塞条件 |
+|:---:|------|------|
+| **P0** | 页面加载、导航、关键 CRUD | 任一失败 = 构建阻塞 |
+| **P1** | 主要业务流、状态转换、计算验证 | 100% 通过（SIT） |
+| **P2** | 边界值、输入校验、错误处理、权限 | ≥90% 通过 |
+| **P3** | 跨模块集成、数据一致性 | 有跨模块依赖时必做 |
 
-**State-Machine-Driven Scenarios:** For every entity with states, generate one test
-per valid transition (P1) and one test per invalid transition attempt (P2).
+## 2.2 核心策略
 
-**Formula-Driven Boundary Tests:** For every business formula and UI form field
-constraint, generate tests at exact thresholds, threshold±1, zero, negative, 
-max+1, special characters. **Target: ≥30% of total cases as boundary (V- prefix).**
-For requirements with ≥10 functional points, ≥5 boundary cases per point.
+- **状态机驱动**: 合法转换→P1，非法转换→P2
+- **公式边界**: ≥30% 总用例数为边界测试 (V-前缀)，每功能点≥5个
+- **数据变化维度**: 对每个需求问"什么数据条件会改变结果？"→映射到 test_data_inventory.md 中的变化维度
+- **数据驱动格式**: 同一逻辑+多数据行→参数化表格
 
-**Identify Data Variation Dimensions:** For each requirement, ask: "What different
-data conditions could change the outcome?" Map to variations from test_data_inventory.md:
+输出 `test_coverage_matrix.md`（需求×测试追溯 + 数据变化覆盖）。
 
-| Requirement | Data Entity | Variations Needed |
-|-------------|------------|-------------------|
-| F001 (Credit check) | Customer | Normal credit, Zero credit, No record |
-| F002 (Stock check) | Material | Sufficient, Boundary (80%), Insufficient, Zero |
+## 2.3 统一测试用例文档
 
-**Test Priority Framework:**
+按 `references/测试用例模版.md` 的 8 章标准生成 **一个** `test_cases.md`，涵盖功能+API：
 
-- **P0 (Smoke/冒烟)**: Core path — page load, navigation, critical CRUD. Must pass for
-  every build. If a P0 fails, the build is blocked.
-- **P1 (Functional/功能)**: Main business flows — data CRUD, search/filter, status
-  transitions, calculations. Covers happy paths and common workflows.
-- **P2 (Boundary/边界)**: Edge cases — input validation, error handling, boundary
-  values, empty states, permission checks, concurrent access.
-- **P3 (Integration/集成)**: Cross-module workflows — end-to-end scenarios spanning
-  2+ modules, data consistency across modules, long-running processes. **P3 is mandatory
-  when cross-module dependencies exist.**
+| 前缀 | 含义 | 前缀 | 含义 |
+|------|------|------|------|
+| F- | 核心流程 | V- | 校验/边界 |
+| C-/U-/X- | 创建/更新/删除 | L-/D- | 列表/详情 |
+| **A-** | **API 接口测试** | P-/N-/T- | 权限/非功能/待澄清 |
 
-**Output: `test_coverage_matrix.md`**
+**含 API 规格时**: 在文档中嵌入 YAML block（`kind: api_pytest`），可被 `generate_pytest.py` 直接提取执行。
 
-```markdown
-# Test Coverage Matrix: [Feature/Module Name]
+## 2.4 外部测试数据
 
-## Coverage Summary
-| Requirement | P0 | P1 | P2 | P3 | Total | Coverage % |
-|------------|----|----|----|----|-------|-----------|
-| F001       | 1  | 2  | 3  | 0  | 6     | 100%      |
+生成 `test_data.json`（自动化用，结构化）和 `test_data.csv`（业务评审用，扁平格式）。
 
-## Data Variation Coverage
-| Data Entity | Variations Covered | Tests | Coverage % |
-|-------------|-------------------|-------|-----------|
-| Customer credit profile | 3/3 | TC-002, TC-007, TC-012 | 100% |
-
-## Traceability Matrix
-| Test ID | Requirement ID | Scenario | Priority | Data Variation | Module |
-|---------|---------------|----------|----------|---------------|--------|
-| TC-001  | F001          | ...      | P0       | Normal credit | 销售   |
-```
-
-## 2.2 Write Data-Driven Test Cases
-
-Write detailed, executable test cases. Each must be followable without additional knowledge.
-
-**Standard format:**
-| ID | Test Case | Precondition | Steps | Expected Result | Test Data | Module |
-
-**Data-driven format** — same logic, multiple data rows:
-| ID | Test Case | Precondition | Steps | Expected Result | Data Table Ref |
-|----|-----------|-------------|-------|-----------------|---------------|
-| TC-005 | Credit limit validation | Logged in as gm.销售#1 | 1. Navigate 销售→销售订单 2. Select customer 3. Enter amount 4. Click 保存 | See Table-D01 | Table-D01 |
-
-**Data Table D01:**
-| # | Customer | Credit Limit | Order Amount | Expected |
-|---|----------|-------------|-------------|----------|
-| D01-1 | 品牌A (正常) | ¥500,000 | ¥300,000 | 保存成功 |
-| D01-2 | 品牌B (正常) | ¥500,000 | ¥500,000 | 保存成功 |
-| D01-3 | 品牌C (零信用) | ¥0 | ¥1,000 | "信用额度不足" |
-| D01-4 | 品牌D (新客户) | (无记录) | ¥10,000 | 按默认规则 |
-| D01-5 | 品牌E (超额) | ¥100,000 | ¥150,000 | "超出信用额度¥50,000" |
-
-## 2.3 Generate External Test Data Files
-
-**`test_data.json`** — structured format for automation:
-
-```json
-{
-  "credit_limit_validation": {
-    "description": "Credit limit check with varying customer profiles",
-    "test_id": "TC-005",
-    "dataset": [
-      {"id": "D01-1", "customer": "品牌A", "credit_limit": 500000, "order_amount": 300000, "expected_result": "pass"},
-      {"id": "D01-3", "customer": "品牌C", "credit_limit": 0, "order_amount": 1000, "expected_result": "block", "expected_message": "信用额度不足"}
-    ]
-  }
-}
-```
-
-**`test_data.csv`** — flat format for business stakeholder review:
-
-```csv
-data_id,customer,credit_limit,order_amount,expected_result,expected_message
-D01-1,品牌A,500000,300000,pass,
-D01-3,品牌C,0,1000,block,信用额度不足
-```
-
-## 2.4 Output: Unified Test Case Document
-
-Produce ONE document following the **测试用例模版** (12-chapter standard at
-`references/测试用例模版.md`). This single document covers both functional and
-API testing, eliminating the need for separate deliverables.
-
-**Document structure (8 required chapters):**
-```markdown
-# [模块名] 测试用例
-## 文档信息
-## 知识库检索摘要
-## 需求追溯表
-## 核心流程测试 (F-xx)
-## 详细功能点测试 (V-xx, C-xx, L-xx, D-xx, U-xx)
-## 用例评审表 (统一：F/L/D/C/U/V/P/N + A 前缀)
-## 通用覆盖矩阵自检 (A~I)
-## 待澄清清单 (T-xx)
-```
-
-**Numbering — unified across functional + API:**
-| 前缀 | 含义 | 来源 |
-|------|------|------|
-| F- | 核心流程 | 功能 |
-| C-/U-/X- | 创建/更新/删除 | 功能 |
-| L-/D- | 列表/详情 | 功能 |
-| V- | 校验/边界 | 功能 |
-| **A-** | **API 接口测试** | **新增** |
-| P- | 权限/安全 | 共用 |
-| N- | 非功能(性能) | 共用 |
-| T- | 待澄清 | 共用 |
-
-**API cases embedded as extractable YAML block:**
-When the requirements include API specs, append an API appendix to the unified doc.
-The YAML block between `---` markers can be extracted by `generate_pytest.py`:
-
-```markdown
-## API 接口测试
-<!-- 以下 YAML block 可被 generate_pytest.py 直接提取执行 -->
 ---
-kind: api_pytest
-base_url: ...
-cases:
-  - id: A-01
-    ...
----
-```
 
-**When to include API appendix:** Requirements contain field spec tables, enum
-definitions, callback patterns, or required/optional markings (Y/N columns).
-Skip for UI-only requirements.
+# 3. Playwright 自动化脚本和执行
 
-# 3. Playwright自动化脚本和执行
+## 3.1 项目结构
 
-## 3.1 Generate Playwright Project
-
-Generate a Playwright (Python) project using `pytest` + `playwright` plugin, with
-`@pytest.mark.parametrize` for data-driven tests. Use the `sync_api` variant.
-
-**Script Requirements:**
-- `pytest` as test runner, `playwright` plugin for browser automation
-- `@pytest.mark.parametrize` reading from external JSON/CSV data files
-- Fixtures for login, browser, and data-loading
-- `expect()` assertions matching expected results
-- `pytest.mark` for priority: `@pytest.mark.p0` through `@pytest.mark.p3`
-- `conftest.py` with browser, auth, and data-loading fixtures
-- Page Object Model in `pages/base_page.py`
-- `utils/test_data_loader.py` for CSV/JSON loading utilities
-
-**Project Structure:**
 ```
 erp_tests/
 ├── conftest.py              # Fixtures: browser, login, data loading
@@ -468,335 +164,160 @@ erp_tests/
 ├── test_integration.py      # P3 integration tests
 ├── test_api.py              # API tests (when API specs exist)
 ├── test_quarantine.py       # Quarantined flaky tests
-├── pages/
-│   └── base_page.py         # Page Object Model helpers
+├── pages/base_page.py       # Page Object Model
 ├── utils/
-│   ├── test_data_loader.py  # CSV/JSON data loading
-│   └── test_data.py         # Static test data constants
-├── test_data/               # External JSON datasets
-│   ├── *.json               # UI test datasets
-│   └── api_payloads.json    # API test payloads
-└── README.md                # Setup & execution guide
+│   ├── test_data_loader.py  # CSV/JSON loading
+│   └── test_data.py         # Static constants
+├── test_data/               # External JSON/CSV datasets
+└── README.md
 ```
 
-**Key patterns provided in the skill:**
-- JSON data loader fixture (conftest.py)
-- `@pytest.mark.parametrize` reading external data (test_functional.py)
-- CSV data loading utility (utils/test_data_loader.py)
+## 3.2 技术要求
 
-## 3.2 API Testing (when requirements include API specs)
+- `pytest` + `playwright` (sync_api) + `@pytest.mark.parametrize` + 外部数据文件
+- `conftest.py`: browser/auth/data-loading fixtures + JSON data loader
+- `pytest.ini`: `--reruns 2 --reruns-delay 5` + p0/p1/p2/p3/flaky/quarantine markers
+- `run_tests.sh` + `run_tests.ps1`: smoke/functional/full/integration/complete 五种模式
 
-When the requirements document defines API interfaces (like the 千虹 fabric warehouse
-with 8 API specs), generate API-level tests alongside UI tests. API tests catch issues
-that UI tests miss: field name conflicts, type mismatches, missing callbacks.
+## 3.3 Flaky Test 策略（必做）
 
-### 3.2.1 API Test Structure + Schema Validation
+1. `pytest.ini` 含 `--reruns 2 --reruns-delay 5`
+2. `erp_tests/test_quarantine.py` 含 `@pytest.mark.skip` 隔离模板
+3. `README.md` 含 `## Flaky Test Strategy` 章节
 
-```python
-# erp_tests/test_api.py
-import pytest, httpx
-
-@pytest.mark.p1
-@pytest.mark.parametrize("field,value,expected", [
-    ("materialUniqueCode", None, 400),    # Required missing
-    ("materialUniqueCode", "", 400),       # Empty string
-    ("materialType", "invalid_type", 400), # Invalid enum
-])
-def test_field_validation(api_client, field, value, expected):
-    """Field-level validation: required/empty/enum."""
-    payload = {field: value} if value is not None else {}
-    assert api_client.post("/material/sync", json=payload).status_code == expected
-
-def test_callback_schema(api_client):
-    """Response must match spec — success excludes failReason, failure includes it."""
-    data = api_client.post("/inbound", json=VALID_PAYLOAD).json()
-    for f in ["carrierCode","status","warehouseCode","zoneCode","completeTime"]:
-        assert f in data, f"Missing: {f}"
-    if data["status"] == "失败": assert "failReason" in data
-    if data["status"] == "成功": assert "failReason" not in data
-```
-
-### 3.2.2 Enum Coverage + Async Callback
-
-```python
-@pytest.mark.parametrize("carrier_type", ["面料托盘","裁片箱","松布架","成品箱","超规格辅料框","辅料箱"])
-def test_all_carrier_types(api_client, carrier_type):
-    """Every documented enum value accepted; undefined values rejected."""
-    assert api_client.post("/bind", json={**BASE, "carrierType": carrier_type}).status_code == 200
-
-def test_undefined_rejected(api_client):
-    assert api_client.post("/bind", json={**BASE, "carrierType":"不存在"}).status_code == 400
-
-def test_callback_timeout(api_client):
-    """WMS must callback within SLA."""
-    t0 = time.time()
-    r = api_client.post("/inbound", json=VALID_PAYLOAD)
-    assert time.time() - t0 < 10, f"SLA exceeded"
-```
-
-### 3.2.3 API Test Data + Trigger Conditions
-
-Store payloads in `erp_tests/test_data/api_payloads.json`. Generate API tests when requirements include field spec tables, enum definitions, async callbacks, or required/optional markings (Y/N). Skip for UI-only requirements.
-
-## 3.3 Configure Test Execution
-
-**`pytest.ini`:**
-```ini
-[pytest]
-testpaths = erp_tests
-addopts = -v --tb=short --strict-markers --reruns 2 --reruns-delay 5
-markers =
-    p0: Smoke tests — must pass for every build
-    p1: Functional tests — core business flows
-    p2: Boundary tests — edge cases and validation
-    p3: Integration tests — cross-module workflows
-    flaky: Tests with known intermittent failures
-    quarantine: Tests isolated due to persistent failure
-```
-
-Generate `run_tests.sh` and `run_tests.ps1` with commands for all execution modes:
-
-| Mode | Flag | Use Case |
-|------|------|----------|
-| Smoke | `-m p0` | Quick pre-release check |
-| Functional | `-m "p0 or p1"` | Daily regression |
-| Full | `-m "p0 or p1 or p2"` | Pre-release validation |
-| Integration | `-m p3` | Cross-module verification |
-| Complete | (no filter) | Full suite |
-
-## 3.4 Execute Tests (Priority Order)
-
-1. **P0 first** — Any P0 failure = build blocked.
-2. **P1 next** — Core functional flows.
-3. **P2 after** — Boundary/edge cases.
-4. **P3 last** — Integration tests.
-
-## 3.5 Capture Results (`pytest_results.json`)
-
-```json
-{
-  "execution": {
-    "timestamp": "2026-06-30T10:00:00", "duration_seconds": 342.5,
-    "total": 60, "passed": 55, "failed": 3, "pass_rate": 0.917
-  },
-  "by_priority": {
-    "p0": {"total": 10, "passed": 10, "failed": 0, "pass_rate": 1.00},
-    "p1": {"total": 20, "passed": 19, "failed": 1, "pass_rate": 0.95}
-  },
-  "failures": [
-    {"test_id": "TC-015", "priority": "p1", "error_type": "AssertionError",
-     "message": "Expected '信用额度不足' but got '系统错误'"}
-  ]
-}
-```
-
-## 3.6 Retry & Flaky Test Strategy (MANDATORY)
-
-This step must produce visible artifacts. Do not skip.
-
-1. **`pytest.ini`** must include `--reruns 2 --reruns-delay 5` in `addopts`
-2. **`erp_tests/test_quarantine.py`** generated with quarantine template and `@pytest.mark.skip`
-3. **Execution scripts** document retry strategy in comments
-4. **`README.md`** includes `## Flaky Test Strategy` section with retry rules, identification, quarantine criteria, and weekly review process
-
----
-
-## 3.7 测试执行环境顺序
-
-用例按环境逐级推进，低环境通过后才进入高环境：
+## 3.4 执行环境顺序
 
 ```
-SIT (测试环境，主线验证)
-  │  P0+P1 全部通过
-  ↓
-客户定制验证（按优先级）:
-  ├── 1️⃣ UAT企业（如有）→ uat.fj.dtsimple.pro 选择对应企业
-  └── 2️⃣ 模拟生产环境（如无UAT）→ bak.xinji / bak.jmym / bak.ajn
-  │  P0+P1 全部通过
-  ↓
-(未来) 真实生产环境
+SIT (测试环境) → 客户验证 (UAT优先 → 模拟生产 bak.*) → 上线
 ```
 
-**环境说明：**
+| 阶段 | 环境 | 用例范围 | 通过标准 |
+|:---:|------|------|------|
+| 1 | SIT | P0+P1 全量 | 100% P0, ≥95% P1 |
+| 2 | 客户验证 | P0+P1+P2（含差异用例） | 100% P0+P1, ≥90% P2 |
+| 3 | 上线 | P0~P3 全量 | 100% P0+P1, ≥85% P2+P3 |
 
-| 环境 | URL | 类型 | 说明 |
-|------|-----|------|------|
-| SIT | test.fj.dtsimple.pro | 测试 | 主线功能验证，13个企业可选 |
-| UAT | uat.fj.dtsimple.pro | 验收 | 6个企业可选，其中包含部分客户UAT企业 |
-| xinji | bak.xinji.dtsimple.pro | **模拟生产** | 新基(柬埔寨)客户模拟环境 |
-| jingmen | bak.jmym.dtsimple.pro | **模拟生产** | 荆门鹰美客户模拟环境 |
-| ajn | bak.ajn.dtsimple.pro | **模拟生产** | 安吉纳客户模拟环境 |
+客户差异从 `references/customer_variants.md` 读取，公共模块在 SIT 覆盖。
 
-**客户验证优先级：**
-1. **优先 UAT**：客户在 UAT 环境有对应企业（如 UAT 中 `安吉纳_验收`），则优先在 UAT 验证
-2. **其次模拟生产**：客户无 UAT 企业时，使用独立模拟生产环境（bak.*）验证
-3. 模拟生产环境非真实生产，仅用于上线前最终确认
-
-**执行策略：**
-
-| 阶段 | 环境 | 用例范围 | 通过标准 | 阻塞条件 |
-|:---:|------|------|------|------|
-| 1 | **SIT** | P0+P1 全量（主线） | 100% P0, ≥95% P1 | 任一 P0 失败 |
-| 2 | **客户验证** | P0+P1+P2（含差异用例） | 100% P0+P1, ≥90% P2 | 任一 P1 失败 |
-| 3 | **上线** | P0~P3 全量 | 100% P0+P1, ≥85% P2+P3 | 任一 P0 失败 |
-
-**多客户并行验证：**
-```
-SIT (主线基线)
-  ↓
-├── UAT > 安吉纳_验收 (如有)
-├── 模拟生产 > xinji (新基)
-├── 模拟生产 > jingmen (荆门)
-└── 模拟生产 > ajn (安吉纳，如无UAT企业)
-```
-
-**差异用例识别：**
-- 从 `references/customer_variants.md` 读取客户差异矩阵
-- 仅对差异模块生成/执行差异化用例
-- 公共模块用例在 SIT 阶段完成，不在客户环境重复执行
+详见 `references/steps/Step4_测试执行.md`
 
 ---
 
 # 4. 测试报告
 
-## 4.1 Generate Multi-Format Reports
+## 4.1 报告产出
 
-**`test_report.md`** — Human-readable summary:
-```markdown
-# Test Execution Report: [Feature/Module]
-## Summary
-| Metric | Value |
-| Execution Time | 2026-06-30 10:00 |
-| Total / Passed / Failed | 60 / 55 / 3 |
-| Overall Pass Rate | 91.7% |
+| 文件 | 内容 |
+|------|------|
+| `test_report.md` | 可读摘要（概要+按优先级结果+失败分析+趋势分析） |
+| `test_report.html` | 交互式浏览器报告（含图表） |
+| `traceability_report.md` | 需求→结果审计映射 |
+| `pytest_results.json` | 结构化执行结果 |
+| `defects/` | 缺陷工单（含复现步骤+预期vs实际+截图） |
 
-## Results by Priority
-| Priority | Total | Passed | Failed | Pass Rate | Status |
-|----------|-------|--------|--------|-----------|--------|
-| P0 | 10 | 10 | 0 | 100% | ✅ |
-| P1 | 20 | 19 | 1 | 95% | ⚠️ |
+## 4.2 趋势分析（必做）
 
-## Failed Tests
-### TC-015: test_credit_limit_zero (P1)
-- **Error**: Expected '信用额度不足' but got '系统错误'
-- **Recommendation**: Check error message mapping for zero-credit customers
+即使首次执行也要包含 Trend Analysis 章节（无历史数据时标注"首次执行"）。
+有历史数据时计算真实增量，附解读（Improving/Watch/Action）。
 
-## Requirements Traceability
-| Requirement | Tests | Passed | Failed | Status |
-| F001 (Credit Check) | 12 | 11 | 1 | ⚠️ 92% |
-```
+---
 
-**`test_report.html`** — Interactive browser report with charts and expandable failures.
+## Quick Output Modes
 
-**`traceability_report.md`** — Requirements-to-results audit mapping:
-```markdown
-| Req ID | Requirement | Test IDs | Results | Status |
-| F001 | Credit limit check | TC-002~TC-013 | 11/12 passed | ⚠️ Partial |
-```
+Skill 自动检测文档类型并调整产出密度：
 
-## 4.2 Defect Reports
+| 模式 | 触发词 | 用例编号 | 脚本 | 目标文件数 |
+|------|--------|:---:|:---:|:---:|
+| **Full** | "完整测试方案","全套" | F/C/V/L/D/A/P/N | 全量 erp_tests/ | ≤22 |
+| **Smoke** | "冒烟测试","P0 only" | P0 only | test_smoke.py | ≤8 |
+| **API** | "API测试","接口测试" | A-xx + schema | test_api.py | ≤12 |
+| **Cases** | "只要测试用例" | 全部 | 跳过 | ≤8 |
+| **Report** | "测试报告" | — | — | ≤4 |
+| **Module** | "只看XX模块" | 限定范围 | 限定范围 | 按比例 |
 
-For each failed test, generate a defect ticket with full context:
-- Severity, Module, Build, Environment
-- Steps to Reproduce
-- Expected vs Actual Result
-- Screenshots and logs attachments
-
-## 4.3 Trend Analysis (MANDATORY)
-
-Always include a Trend Analysis section in `test_report.md`, even for the first execution.
-If no historical data exists, show placeholder values and note "First execution — trend
-data will be available from the next run."
-
-When historical data is available, compute real deltas with interpretation:
-- Improving/Watch/Action analysis
-- Flaky test identification and quarantine recommendations
-
-## 4.4 Report Directory Structure
-
-```
-reports/
-└── 2026-06-30_100000/
-    ├── test_report.md              # Human-readable summary
-    ├── test_report.html            # Interactive browser report
-    ├── traceability_report.md      # Requirements→results mapping
-    ├── junit.xml                   # CI integration
-    ├── pytest_results.json         # Machine-readable results
-    ├── defects/                    # Defect tickets
-    └── screenshots/                # Failure captures
-```
+**文件数控制**: Light 模式≤12文件，跳过 test_report.html / test_quarantine.py / test_data.json（CSV足够时）。
 
 ---
 
 ## Output Summary
 
-| File | Description | Section |
-|------|-------------|---------|
-| `test_cases.md` | **统一测试文档**（8章模板标准，含API YAML块） | 2 |
-| `requirements_spec.md` | 需求规格说明 | 1 |
-| `requirements_audit.md` | 文档质量审计 | 1 |
-| `test_data_inventory.md` | 测试数据编目 | 1 |
-| `test_coverage_matrix.md` | 需求→测试追溯矩阵 | 2 |
-| `test_data.csv` / `test_data.json` | 外部测试数据文件 | 2 |
-| `erp_tests/` | Playwright + pytest 自动化项目 | 3 |
-| `pytest.ini` | Pytest配置（markers + retry） | 3 |
-| `run_tests.sh` | 执行脚本（smoke/api/functional/full） | 3 |
-| `test_report.md` | 测试执行报告 | 4 |
-| `traceability_report.md` | 需求→结果审计映射 | 4 |
-| `pytest_results.json` | 结构化执行结果 | 4 |
+| 阶段 | 核心产出 |
+|:---:|------|
+| 1. 需求分析 | `requirements_spec.md` + `requirements_audit.md` + `test_data_inventory.md` |
+| 2. 测试用例 | `test_cases.md` + `test_coverage_matrix.md` + `test_data.csv/json` |
+| 3. 自动化 | `erp_tests/` + `pytest.ini` + `run_tests.sh/ps1` + `pytest_results.json` |
+| 4. 报告 | `test_report.md` + `traceability_report.md` + `defects/` |
 
-**标准交付：≤22 文件（Hybrid）/ ≤16 文件（UI-heavy）/ ≤12 文件（Light）**
+## Key Principles
 
-## Quick Output Modes
+- **提取，不要凭空编造**测试数据 — 从捕获页面拉取真实实体名
+- **每个状态转换 = 一个测试用例** — 合法→P1，非法→P2
+- **每个公式阈值 = 一个边界测试** — 精确阈值、阈值±1、零值、极值
+- **每条错误消息 = 一个预期结果** — 使用领域知识中的精确中文消息
+- **数据变化是 ERP 测试质量的关键** — 覆盖所有数据维度
+- **P3 不可跳过** — 有跨模块依赖时必须做
+- **注意设备特定行为** — PC/PAD/PDA/工业平板
+- 如果找不到 `module_texts.txt`，请用户提供位置
 
-Skill auto-detects document type and adjusts output density:
+## Test Data Lifecycle (setup → test → cleanup)
 
-**Document type detection:**
-| Type | Signals | Section 2 focus | Section 3 focus | Target files |
-|------|--------|:---:|:---:|:---:|
-| **API-heavy** | Field spec tables, enum definitions, callback patterns | API cases (A-xx) + schema validation | test_api.py + payloads | ≤20 |
-| **UI-heavy** | Page flows, form fields, state transitions, no API tables | Functional cases (V-/C-/F-xx) + state machine | test_smoke/test_functional + POM | ≤16 |
-| **Hybrid** | Both API + UI present | Full unified document | Full erp_tests/ | ≤22 |
-| **Light** | <10 functional points, single module | Simplified 8-chapter (skip API/安全/性能附录) | test_smoke.py only, no quarantine | ≤12 |
+所有自动化测试遵循统一的 **运行前检查 → 执行 → 运行后清理** 三步流水线，确保测试数据唯一性和环境清洁。**此规范适用于所有 IMS 系统模块**（销售、采购、生产、仓库、质检、吊挂、物流、报表、数据等），不限于特定模块。
 
-**File count control:**
-- Merge `run_tests.ps1` into `run_tests.sh` comments (cross-platform note)
-- Skip `test_report.html` for UI-heavy and Light modes (keep .md only)
-- Skip `test_data.json` when CSV covers all parametrized data
-- Skip `test_quarantine.py` for Light mode (no complex dependencies)
-- Merge `test_config.json` into `pytest.ini`
+### 三步流水线
 
-**Explicit mode selection:**
-| Mode | Trigger Phrases | Output |
-|------|----------------|--------|
-| **Full** (default) | "完整测试方案", "全套", "全部" | All 4 sections |
-| **Smoke only** | "冒烟测试", "P0 only", "快速验证" | Section 2 (P0 cases) + Section 3 (smoke scripts) |
-| **API only** | "API测试", "接口测试" | Section 1.3 (audit) + Section 3.2 (API tests) |
-| **Cases only** | "只要测试用例", "不用脚本" | Section 1 + Section 2 (skip automation) |
-| **Report only** | "测试报告", "执行结果" | Section 4 (from existing results) |
-| **Module focus** | "只看XX模块" | All sections scoped to specified module |
-| **Env: SIT** | "SIT环境", "测试环境" | 使用 environments/sit.json 配置 |
-| **Env: UAT** | "UAT环境", "验收环境" | 使用 environments/uat.json 配置 |
-| **Env: Customer** | "新基环境", "荆门环境" | 使用 environments/{name}.json 配置 |
+```
+┌─ setup (运行前检查与准备) ─────────────────────────────────────┐
+│  1. 清理旧数据: 按业务唯一键删除目标模块已有测试数据           │
+│  2. 生成测试数据: 新建数据 (非模板复制)，无残留行              │
+│  3. 导入/创建: 通过 UI 或 API 将测试数据写入系统               │
+│  4. 前置计算/审批: 触发模块所需的预处理流程（如计算、审核等）  │
+└──────────────────────────────────────────────────────────────┘
+                        │
+                        ▼
+┌─ pytest erp_tests/ ──────────────────────────────────────────┐
+│  5. test_dataset fixture: 提取数据 → 分类 → 缓存             │
+│  6. 全量测试执行 (P0~P3)                                     │
+└──────────────────────────────────────────────────────────────┘
+                        │
+                        ▼
+┌─ pytest_sessionfinish hook ───────────────────────────────────┐
+│  7. 自动清理: 删除本次导入/创建的所有测试数据                  │
+└──────────────────────────────────────────────────────────────┘
+```
 
-## Important Notes
+### 关键原则
 
-### Data Sources (lazy-load by relevance)
-1. **Always load**: `references/consolidated_domain_knowledge.md` (482L) — Primary domain knowledge.
-2. **Load on API specs present**: `references/接口自动化测试用例验收标准.md` — API验收标准.
-3. **Load on UI flows present**: `references/功能测试用例验收标准.md` + `测试用例模版.md` — 功能验收标准.
-4. **Load on customer mention**: `references/customer_variants.md` + `environments/{name}.json`.
-5. **Load on specific module**: `references/feature_{module}.md` (if exists).
-6. **Skip for Light mode**: Only #1 + #3. Total: 3 files, ~900 lines.
-7. **`module_texts.txt`** — Live ERP page captures.
-8. **`Documents/知识库文档/`** — Original IMS system docs (deep dives only).
+| 原则 | 实现 |
+|------|------|
+| **业务唯一性** | 导入前按模块业务唯一键删除已有记录 |
+| **数据干净** | 程序化新建数据 (如 `openpyxl.Workbook()`)，不复制模板 |
+| **自然交互** | 按钮启用后才点击，不 force-click；等待异步任务完成 |
+| **会话一致** | 数据准备和提取在同一 Playwright 会话 |
+| **测试后清理** | `pytest_sessionfinish` hook 自动执行清理 |
 
-### Test Generation Principles
-- **Extract, don't invent** test data — pull real entity names from captured pages.
-- **Every state transition is a test case.** Valid transitions → P1, invalid → P2.
-- **Every formula threshold is a boundary test.** Exact threshold, threshold±1, zero, extreme.
-- **Every error message is an expected result.** Use exact Chinese messages from domain knowledge.
-- **Data variation is the key to ERP test quality** — cover all data dimensions.
-- **Ensure P3 tests are never skipped** — mandatory when cross-module dependencies exist.
-- **Account for device-specific behavior** — PC/PAD/PDA/Industrial Tablet.
-- If `module_texts.txt` is not found, ask the user for its location.
+### 实现文件
+
+| 文件 | 职责 |
+|------|------|
+| `setup_test_data.py` | Pre-test: 清理→生成→导入→前置流程触发 |
+| `conftest.py::pytest_sessionfinish` | Post-test: 自动清理本次测试数据 |
+| `erp_tests/utils/test_data_extractor.py` | 数据提取+分类+缓存 |
+| `erp_tests/utils/test_data_generator.py` | 测试数据生成+前置计算 |
+
+### conftest 钩子模板
+
+```python
+# conftest.py
+def pytest_sessionfinish(session, exitstatus):
+    """测试完成后自动清理本次测试数据"""
+    from setup_test_data import cleanup_test_data
+    cleanup_test_data()
+```
+
+| 陷阱 | 表现 | 解决 |
+|------|------|------|
+| Ant Design 表格 td 比 th 多一列 | 数据提取永远返回 0 | `cells = cells[len(cells)-len(headers):]` |
+| 按钮选择器 `.ant-btn-primary` 误匹配 | 点击了弹窗按钮而非查询按钮 | 遍历 `button:visible` + 文本匹配 |
+| DatePicker 是 readonly input | `fill()` 超时 | `fill(value, force=True)` |
+| Excel 导入字段列映射错位 | 预览报错/按钮 disabled | 确认字段列顺序与系统导入模板一致 |
+| 异步任务进度不在预期容器 | 轮询永远找不到完成标记 | 搜索 `body` 全文 |

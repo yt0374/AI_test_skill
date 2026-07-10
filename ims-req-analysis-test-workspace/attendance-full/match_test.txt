@@ -1,0 +1,27 @@
+Key='工号' (2 chars) Val='缝制员工11' (6 chars)
+Key='组别' (2 chars) Val='生产部' (3 chars)
+Key='迟到早退' (4 chars) Val='没上班' (3 chars)
+  MATCH 没上班!
+  EXACT MATCH!
+Key='考勤异常' (4 chars) Val='工作日' (3 chars)
+  THIS IS 考勤异常!
+Key='哺乳期' (3 chars) Val='超级管理员' (5 chars)
+Key='更新时间' (4 chars) Val='请假\n明细' (5 chars)
+Key='工号' (2 chars) Val='缝制员工12' (6 chars)
+Key='组别' (2 chars) Val='生产部' (3 chars)
+Key='迟到早退' (4 chars) Val='没上班' (3 chars)
+  MATCH 没上班!
+  EXACT MATCH!
+Key='考勤异常' (4 chars) Val='工作日' (3 chars)
+  THIS IS 考勤异常!
+Key='哺乳期' (3 chars) Val='超级管理员' (5 chars)
+Key='更新时间' (4 chars) Val='请假\n明细' (5 chars)
+Key='工号' (2 chars) Val='缝制员工13' (6 chars)
+Key='组别' (2 chars) Val='生产部' (3 chars)
+Key='迟到早退' (4 chars) Val='没上班' (3 chars)
+  MATCH 没上班!
+  EXACT MATCH!
+Key='考勤异常' (4 chars) Val='工作日' (3 chars)
+  THIS IS 考勤异常!
+Key='哺乳期' (3 chars) Val='超级管理员' (5 chars)
+Key='更新时间' (4 chars) Val='请假\n明细' (5 chars)

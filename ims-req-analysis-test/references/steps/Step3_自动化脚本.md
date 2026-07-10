@@ -67,7 +67,23 @@ def test_credit_validation(page, customer, limit, amount, expected, msg):
 | 隔离 | >50%失败×5轮→test_quarantine.py |
 | 周审 | 每周审阅，修复或退役 |
 
-## 3.6 环境登录
+## 3.6 失败截图（自动）
+
+conftest.py 内置 `pytest_runtest_makereport` 钩子，测试失败时自动截图：
+
+```python
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    if outcome.get_result().failed and call.when == "call":
+        page = item.funcargs.get("page")
+        if page:
+            page.screenshot(path=f"reports/screenshots/{item.name}_{timestamp}.png")
+```
+
+截图保存到 `reports/screenshots/`，文件名含用例名+时间戳。断言失败/超时/错误均触发。
+
+## 3.7 环境登录
 
 ```python
 from scripts.ims_login import login
@@ -77,7 +93,7 @@ login(page, "xinji")
 
 自动处理企业选择器（SIT/UAT）和差异化密码（UAT最佳智造→qwe123）。
 
-## 3.7 文件数控制
+## 3.8 文件数控制
 
 | 文档类型 | 目标文件数 |
 |:---:|:---:|
@@ -88,7 +104,7 @@ login(page, "xinji")
 
 **精简规则：** .ps1合并到.sh / .html仅.md / .json跳过(CSV全覆盖) / quarantine跳过(Light)
 
-## 3.8 产出清单
+## 3.9 产出清单
 
 | 文件 | 内容 | → 流向 |
 |------|------|:---:|

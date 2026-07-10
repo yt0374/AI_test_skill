@@ -1,0 +1,56 @@
+{
+  "attendance_mending_enabled": {
+    "description": "早班上班补卡按钮可用性",
+    "test_id": "V-15,V-16",
+    "dataset": [
+      {"id": "V15-1", "early_start_time": "", "has_early_leave": false, "expected_enabled": true, "desc": "时间为空无请假→启用"},
+      {"id": "V15-2", "early_start_time": "07:55", "std_early_start": "08:00", "has_early_leave": false, "expected_enabled": false, "desc": "时间≤标准无请假→禁用"},
+      {"id": "V15-3", "early_start_time": "08:05", "std_early_start": "08:00", "has_early_leave": false, "expected_enabled": true, "desc": "时间>标准无请假→启用"},
+      {"id": "V16-1", "early_start_time": "", "has_early_leave": true, "expected_enabled": false, "desc": "时间为空有请假→禁用"}
+    ]
+  },
+  "leave_time_overlap": {
+    "description": "请假时间重叠校验",
+    "test_id": "V-09",
+    "dataset": [
+      {"id": "V09-1", "existing_start": "2026-07-08 08:00", "existing_end": "2026-07-08 18:00", "new_start": "2026-07-08 08:00", "new_end": "2026-07-08 18:00", "expected": "block", "desc": "完全重叠→阻止"},
+      {"id": "V09-2", "existing_start": "2026-07-08 08:00", "existing_end": "2026-07-08 12:00", "new_start": "2026-07-08 10:00", "new_end": "2026-07-08 14:00", "expected": "block", "desc": "部分重叠→阻止"},
+      {"id": "V09-3", "existing_start": "2026-07-08 08:00", "existing_end": "2026-07-08 12:00", "new_start": "2026-07-08 13:00", "new_end": "2026-07-08 18:00", "expected": "pass", "desc": "不重叠→通过"}
+    ]
+  },
+  "return_work_validation": {
+    "description": "回工登记非空校验+员工数校验",
+    "test_id": "V-04,V-05,F-13",
+    "dataset": [
+      {"id": "V04-1", "employee_count": 0, "expected": "请选择回工员工。", "desc": "未选员工→告警"},
+      {"id": "F13-1", "employee_count": 0, "status": "草稿", "action": "生效", "expected": "没有登记员工，不能生效。", "desc": "员工数=0生效→告警"},
+      {"id": "F12-1", "employee_count": 5, "status": "草稿", "action": "生效", "expected": "生效", "desc": "员工数>0生效→成功"}
+    ]
+  },
+  "overtime_rounding": {
+    "description": "加班时数按0.5H四舍五入",
+    "dataset": [
+      {"id": "OT-1", "raw_hours": 1.149, "expected": 1.0, "desc": "1.149→1H"},
+      {"id": "OT-2", "raw_hours": 1.15, "expected": 1.5, "desc": "1.15→1.5H"},
+      {"id": "OT-3", "raw_hours": 1.649, "expected": 1.5, "desc": "1.649→1.5H"},
+      {"id": "OT-4", "raw_hours": 1.85, "expected": 2.0, "desc": "1.85→2H"}
+    ]
+  },
+  "query_date_range": {
+    "description": "考勤查询日期跨度限制3月",
+    "test_id": "V-01",
+    "dataset": [
+      {"id": "V01-1", "start": "2026-04-08", "end": "2026-07-07", "expected": "pass", "desc": "刚好3月→通过"},
+      {"id": "V01-2", "start": "2026-04-07", "end": "2026-07-07", "expected": "block", "desc": "超过3月→限制"}
+    ]
+  },
+  "reason_length": {
+    "description": "事由字段200字符限制",
+    "test_id": "V-10",
+    "dataset": [
+      {"id": "V10-1", "length": 199, "expected": "pass"},
+      {"id": "V10-2", "length": 200, "expected": "pass"},
+      {"id": "V10-3", "length": 201, "expected": "block"}
+    ]
+  }
+}

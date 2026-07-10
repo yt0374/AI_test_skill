@@ -1,6 +1,6 @@
 # Step 5: 测试报告
 
-> 承接 Step 4（pytest_results.json）| 产出：report + traceability + trend + defects
+> 承接 Step 4（pytest_results.json）| 产出：report + traceability + exec_log + defects
 
 ---
 
@@ -10,6 +10,7 @@
 |------|:---:|------|
 | `test_report.md` | Markdown 摘要 | 业务干系人 |
 | `traceability_report.md` | Markdown 追溯 | 审计/合规 |
+| `TEST_EXECUTION_LOG.md` | Markdown 记录 | 持续追踪 |
 | `pytest_results.json` | JSON | CI 集成 |
 | `defects/` | Markdown | 开发团队 |
 
@@ -32,52 +33,34 @@
 |------|------|
 | 占位符 + "首次执行，下次运行后可用" | 真实delta + Improving/Watch/Action分析 |
 
-```markdown
-## 趋势分析
-| 指标 | 前次 | 本次 | 变化 |
-| 通过率 | 89.5% | 91.7% | +2.2% ↑ |
-| P0通过率 | 100% | 100% | — |
-| 新增失败 | — | TC-015, TC-042 | 2 |
-| 已修复 | TC-008 | — | 1 ✅ |
-```
-
 ## 5.4 缺陷模板（承接失败用例）
 
 ```markdown
 ## BUG-001: [标题]
 | 严重度 | 模块 | 构建 | 环境 |
-| High | 销售 | 20260706 | SIT |
-
 ### 复现步骤
-1. 登录 → 销售 → 销售订单 → 新建
-2. 选择客户 品牌C (信用额度=¥0)
-3. 输入金额 ¥1000 → 保存
-
-### 期望结果
-错误提示："信用额度不足"
-
-### 实际结果
-错误提示："系统错误"
-
+### 期望 vs 实际
 ### 附件
-- 截图: `screenshots/BUG-001.png`
-- 日志: `logs/BUG-001.log`
 ```
 
-## 5.5 需求追溯
+## 5.5 执行记录（自动追加）
 
-```markdown
-## 需求追溯
-| 需求 | 用例 | 通过 | 失败 | 状态 |
-|------|:---:|:---:|:---:|:---:|
-| F001 信用检查 | V-05~V-10 | 5 | 1 | ⚠️ 83% |
-| F002 库存80%规则 | V-11~V-16 | 6 | 0 | ✅ 100% |
-```
+每次执行自动生成/更新 `TEST_EXECUTION_LOG.md`：
+
+| 字段 | 说明 |
+|------|------|
+| 执行摘要 | 总数/已执行/通过/失败/通过率/结论 |
+| 环境记录 | 环境/日期/结果/说明 |
+| 用例明细 | 用例ID/环境/结果/说明 |
+| 待修复项 | 问题/修复方案/优先级 |
+
+首次执行→创建文件。后续→追加条目+更新摘要。
 
 ## 5.6 产出清单
 
 | 文件 | → 流向 |
 |------|:---:|
-| `test_report.md` | → Step 6 (反馈闭环) |
-| `traceability_report.md` | → 审计存档 |
+| `test_report.md` | → Step 6 |
+| `traceability_report.md` | → 审计 |
+| `TEST_EXECUTION_LOG.md` | → 持续追踪 |
 | `defects/` | → 开发团队 |
